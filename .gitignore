@@ -1,0 +1,9 @@
+node_modules/
+.design/
+.design_library/
+.preflight/
+*.design
+orchestration-summary.json
+generation-tree.json
+validation-report.json
+partials/
