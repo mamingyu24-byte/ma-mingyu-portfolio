@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作品集 | 马明宇</title>
+    <style id="theme-vars">
+:root {
+  --mm-primary-50: #e6faff;
+  --mm-primary-100: #b3f0ff;
+  --mm-primary-200: #80e6ff;
+  --mm-primary-300: #4ddcff;
+  --mm-primary-400: #1ad2ff;
+  --mm-primary-500: #00c8ff;
+  --mm-primary-600: #009ecc;
+  --mm-primary-700: #007499;
+  --mm-primary-800: #004a66;
+  --mm-primary-900: #002133;
+  --mm-neutral-50: #f4f4f8;
+  --mm-neutral-100: #e4e4ec;
+  --mm-neutral-200: #c8c8d6;
+  --mm-neutral-300: #a0a0b8;
+  --mm-neutral-400: #7a7a96;
+  --mm-neutral-500: #5c5c78;
+  --mm-neutral-600: #444460;
+  --mm-neutral-700: #2e2e48;
+  --mm-neutral-800: #1e1e34;
+  --mm-neutral-900: #12122a;
+  --mm-neutral-950: #08080d;
+  --state-success: #22c55e;
+  --state-warning: #f59e0b;
+  --state-error: #ef4444;
+  --state-info: #00c8ff;
+  --mm-background: var(--mm-neutral-950);
+  --mm-foreground: var(--mm-neutral-100);
+  --mm-card: var(--mm-neutral-900);
+  --mm-card-foreground: var(--mm-neutral-100);
+  --mm-popover: var(--mm-neutral-800);
+  --mm-popover-foreground: var(--mm-neutral-100);
+  --mm-primary: var(--mm-primary-500);
+  --mm-primary-foreground: var(--mm-neutral-950);
+  --mm-muted: var(--mm-neutral-800);
+  --mm-muted-foreground: var(--mm-neutral-400);
+  --mm-border: var(--mm-neutral-700);
+  --mm-input: var(--mm-neutral-800);
+  --mm-ring: var(--mm-primary-500);
+  --mm-radius-sm: 4px;
+  --mm-radius-md: 8px;
+  --mm-radius-lg: 16px;
+  --mm-radius-full: 9999px;
+  --font-heading: 'Urbanist', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+  --font-body: 'Urbanist', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+  --text-7xl: 4.5rem;
+  --text-8xl: 6rem;
+  --leading-none: 1;
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --font-light: 300;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  --shadow-float: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --text-primary: rgba(255, 255, 255, 0.92);
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --text-tertiary: rgba(255, 255, 255, 0.4);
+  --text-quaternary: rgba(255, 255, 255, 0.25);
+  --text-disabled: rgba(255, 255, 255, 0.12);
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-light: rgba(255, 255, 255, 0.1);
+  --border-medium: rgba(255, 255, 255, 0.15);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.33, 1, 0.68, 1);
+  --ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
+}
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ==================== RESET & BASE ==================== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        body {
+            background: #000000;
+            color: #f2f0e8;
+            font-family: 'Urbanist', 'Noto Sans SC', system-ui, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        a { text-decoration: none; color: inherit; }
+        img { display: block; max-width: 100%; }
+
+        /* ==================== MARQUEE ANIMATION ==================== */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        @keyframes marquee-reverse {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+
+        /* ==================== NAVIGATION ==================== */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 64px;
+            padding: 0 24px;
+            background: rgba(0, 0, 0, 0.42);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-logo {
+            font-weight: 600;
+            font-size: 18px;
+            color: #f2f0e8;
+            transition: opacity 0.3s ease;
+        }
+        .nav-logo:hover { opacity: 0.8; }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 500;
+            color: #a1a1ab;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover { color: #f2f0e8; }
+        .nav-links a.active { color: #9cff3f; }
+
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 28px;
+            height: 28px;
+            gap: 6px;
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            z-index: 101;
+        }
+        .hamburger .line {
+            display: block;
+            width: 24px;
+            height: 1.5px;
+            background: #f2f0e8;
+            border-radius: 1px;
+            transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.3s;
+            transform-origin: center;
+        }
+        .hamburger.is-open .line:nth-child(1) { transform: translateY(3.75px) rotate(45deg); }
+        .hamburger.is-open .line:nth-child(2) { opacity: 0; }
+        .hamburger.is-open .line:nth-child(3) { transform: translateY(-3.75px) rotate(-45deg); }
+
+        /* Mobile overlay */
+        .mobile-menu {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 4rem 2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s cubic-bezier(0.77, 0, 0.175, 1), visibility 0.5s;
+        }
+        .mobile-menu.is-open { opacity: 1; visibility: visible; }
+        .mobile-menu > a {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 500;
+            color: #a1a1ab;
+            display: block;
+            padding: 0.3em 0;
+            line-height: 1.2;
+            transition: color 0.3s ease, transform 0.4s ease, opacity 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .mobile-menu.is-open > a { opacity: 1; transform: translateY(0); }
+        .mobile-menu.is-open > a:nth-child(1) { transition-delay: 0.05s; }
+        .mobile-menu.is-open > a:nth-child(2) { transition-delay: 0.13s; }
+        .mobile-menu.is-open > a:nth-child(3) { transition-delay: 0.21s; }
+        .mobile-menu.is-open > a:nth-child(4) { transition-delay: 0.29s; }
+        .mobile-menu > a:hover { color: #f2f0e8; transform: translateX(20px); }
+        .mobile-menu-email {
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.25);
+            margin-top: 3rem;
+            transition: color 0.3s;
+        }
+        .mobile-menu-email:hover { color: #a1a1ab; }
+        @media (max-width: 639px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+        }
+
+        /* ==================== PAGE TITLE ==================== */
+        .page-title-section {
+            padding: 120px 24px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .page-title-heading {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 500;
+            letter-spacing: -0.06em;
+            line-height: 1.3;
+        }
+        .page-title-heading .letter {
+            display: inline-block;
+        }
+        .page-title-heading .green { color: #9cff3f; }
+        .page-title-sub {
+            color: #a1a1ab;
+            font-size: 18px;
+            font-weight: 300;
+            margin-top: 12px;
+        }
+
+        /* ==================== FILTER BAR ==================== */
+        .filter-bar {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px 40px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .filter-bar::-webkit-scrollbar { display: none; }
+        .filter-btn {
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #a1a1ab;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.08);
+            white-space: nowrap;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Urbanist', 'Noto Sans SC', system-ui, sans-serif;
+            flex-shrink: 0;
+        }
+        .filter-btn:hover {
+            border-color: rgba(255,255,255,0.2);
+            color: #f2f0e8;
+        }
+        .filter-btn.active {
+            color: #000;
+            background: #9cff3f;
+            border-color: #9cff3f;
+        }
+
+        /* ==================== PROJECT GRID ==================== */
+        .project-grid-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px 100px;
+        }
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        @media (max-width: 639px) {
+            .project-grid { grid-template-columns: 1fr; }
+        }
+
+        .project-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 32px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 48px rgba(0,0,0,0.4);
+        }
+        .project-card .card-img-wrap {
+            overflow: hidden;
+            position: relative;
+            height: 280px;
+        }
+        .project-card .card-img-wrap img {
+            height: 280px;
+            object-fit: cover;
+            width: 100%;
+            transition: transform 0.6s ease;
+        }
+        .project-card:hover .card-img-wrap img {
+            transform: scale(1.05);
+        }
+        .project-card .card-category {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            padding: 4px 12px;
+            border-radius: 100px;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            font-size: 11px;
+            font-weight: 500;
+            color: #a1a1ab;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+        .project-card .card-number {
+            position: absolute;
+            bottom: 16px;
+            right: 16px;
+            font-size: 64px;
+            font-weight: 700;
+            color: rgba(255,255,255,0.04);
+            line-height: 1;
+            z-index: 1;
+        }
+        .project-card .card-body {
+            padding: 24px;
+        }
+        .project-card .card-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #f2f0e8;
+            margin-bottom: 4px;
+        }
+        .project-card .card-desc {
+            font-size: 14px;
+            color: #a1a1ab;
+            line-height: 1.5;
+        }
+        .project-card .card-link {
+            font-size: 13px;
+            color: #9cff3f;
+            font-weight: 500;
+            margin-top: 12px;
+            display: inline-block;
+            transition: opacity 0.3s ease;
+        }
+        .project-card .card-link:hover { opacity: 0.75; }
+
+        /* Hidden cards for filter */
+        .project-card.hidden {
+            display: none;
+        }
+
+        /* ==================== INFINITE SCROLL MARQUEE ==================== */
+        .marquee-section {
+            overflow: hidden;
+            padding: 40px 0 100px;
+        }
+        .marquee-row {
+            display: flex;
+            gap: 20px;
+            width: max-content;
+        }
+        .marquee-row img {
+            height: 200px;
+            width: auto;
+            aspect-ratio: 1;
+            border-radius: 24px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        .marquee-row:nth-child(1) {
+            animation: marquee 35s linear infinite;
+        }
+        .marquee-row:nth-child(2) {
+            animation: marquee-reverse 40s linear infinite;
+            margin-top: 20px;
+        }
+
+        /* ==================== FOOTER PARALLAX ==================== */
+        .footer-parallax {
+            position: relative;
+            height: 60vh;
+            overflow: hidden;
+            background-image: url('https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/brand-identity.png');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+        .footer-parallax .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.85) 100%);
+        }
+        @supports (-webkit-touch-callout: none) {
+            .footer-parallax { background-attachment: scroll; }
+        }
+        .footer-big-text {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            z-index: 2;
+        }
+        .footer-big-text p {
+            color: rgba(255,255,255,0.1);
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            line-height: 1.8;
+        }
+        .footer-info {
+            max-width: 1200px;
+            margin: -80px auto 0;
+            padding: 0 24px 60px;
+            position: relative;
+            z-index: 3;
+        }
+        .footer-info-panel {
+            background: rgba(255,255,255,0.03);
+            border-radius: 32px;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+        .footer-col-heading {
+            font-size: 14px;
+            font-weight: 600;
+            color: #f2f0e8;
+            letter-spacing: 0.05em;
+            margin-bottom: 16px;
+        }
+        .footer-col-item {
+            font-size: 14px;
+            color: #a1a1ab;
+            line-height: 2;
+        }
+        .footer-col-item .label {
+            color: rgba(255,255,255,0.3);
+            margin-right: 8px;
+        }
+        .footer-copyright {
+            text-align: center;
+            padding-top: 24px;
+            font-size: 12px;
+            color: rgba(255,255,255,0.25);
+        }
+        @media (max-width: 768px) {
+            .footer-info-panel { grid-template-columns: 1fr; gap: 32px; }
+        }
+
+        /* ==================== SECTION ANIMATIONS ==================== */
+        .anim-section {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.7s cubic-bezier(0.33, 1, 0.68, 1), transform 0.7s cubic-bezier(0.33, 1, 0.68, 1);
+        }
+        .anim-section.is-visible { opacity: 1; transform: translateY(0); }
+
+        /* ==================== CARD ENTRANCE ANIMATION ==================== */
+        .project-card {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .project-card.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .project-card.revealed:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 48px rgba(0,0,0,0.4);
+        }
+
+        /* ==================== REDUCED MOTION ==================== */
+        @media (prefers-reduced-motion: reduce) {
+            .marquee-row { animation: none !important; }
+            .anim-section { opacity: 1 !important; transform: none !important; transition: none !important; }
+            .project-card { opacity: 1 !important; transform: none !important; transition: none !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="home-v2.html" data-dom-id="nav-home">首页</a>
+        <a href="works-v2.html" data-dom-id="nav-works">作品集</a>
+        <a href="about.html" data-dom-id="nav-about">关于我</a>
+        <a href="mailto:2536260106@stu.zjhzcc.edu.cn" data-dom-id="nav-contact">联系我</a>
+        <a href="mailto:2536260106@stu.zjhzcc.edu.cn" class="mobile-menu-email">2536260106@stu.zjhzcc.edu.cn</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="home-v2.html" class="nav-logo" data-dom-id="nav-home">马明宇</a>
+        <div class="nav-links">
+            <a href="home-v2.html" data-nav-key="home" data-dom-id="nav-home">首页</a>
+            <a href="works-v2.html" data-nav-key="works" data-dom-id="nav-works" class="active">作品集</a>
+            <a href="about.html" data-nav-key="about" data-dom-id="nav-about">关于我</a>
+            <a href="mailto:2536260106@stu.zjhzcc.edu.cn" data-dom-id="nav-contact">联系我</a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="菜单">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </button>
+    </nav>
+
+    <!-- Section 1: Page Title -->
+    <section class="page-title-section anim-section">
+        <h1 class="page-title-heading">
+            <span class="letter green">A</span> <span class="letter green">L</span> <span class="letter green">L</span><br>
+            <span class="letter green">W</span> <span class="letter green">O</span> <span class="letter green">r</span> <span class="letter green">K</span> <span class="letter green">s</span>
+        </h1>
+        <p class="page-title-sub">全部作品集</p>
+    </section>
+
+    <!-- Section 2: Category Filter Bar -->
+    <div class="filter-bar anim-section" id="filter-bar">
+        <button class="filter-btn active" data-filter="全部">全部</button>
+        <button class="filter-btn" data-filter="IP设计">IP设计</button>
+        <button class="filter-btn" data-filter="网页设计">网页设计</button>
+        <button class="filter-btn" data-filter="字体设计">字体设计</button>
+        <button class="filter-btn" data-filter="包装设计">包装设计</button>
+        <button class="filter-btn" data-filter="品牌设计">品牌设计</button>
+        <button class="filter-btn" data-filter="摄影">摄影</button>
+        <button class="filter-btn" data-filter="展览设计">展览设计</button>
+        <button class="filter-btn" data-filter="导视设计">导视设计</button>
+        <button class="filter-btn" data-filter="品牌设计">品牌设计</button>
+    </div>
+
+    <!-- Section 3: Project Grid -->
+    <section class="project-grid-section">
+        <div class="project-grid" id="project-grid">
+
+            <!-- Card 01: IP设计 YaPu -->
+            <a href="detail-ip-yapu.html" class="project-card" data-dom-id="card-ip-yapu" data-category="IP设计">
+                <div class="card-img-wrap">
+                    <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/ip-yapu.png" alt="IP设计「YaPu」" loading="lazy">
+                    <span class="card-category">IP设计</span>
+                    <span class="card-number">01</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">IP设计「YaPu」</h3>
+                    <p class="card-desc">原创IP形象设计，融合潮流美学与趣味表达</p>
+                    <span class="card-link">查看作品 →</span>
+                </div>
+            </a>
+
+            <!-- Card 02: IP设计「云肩撑花」-->
+            <a href="detail-ip-yun-jian.html" class="project-card" data-dom-id="card-ip-yun-jian" data-category="IP设计">
+                <div class="card-img-wrap">
+                    <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/ip-yun-jian.jpg" alt="IP设计「云肩撑花」" loading="lazy">
+                    <span class="card-category">IP设计</span>
+                    <span class="card-number">02</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">IP设计「云肩撑花」</h3>
+                    <p class="card-desc">以中国传统云肩为灵感，创作融合古典韵味与潮流审美的IP形象</p>
+                    <span class="card-link">查看作品 →</span>
+                </div>
+            </a>
+
+            <!-- Card 03: X·FUN 共创字体计划网页UI -->
+            <a href="detail-xfun-web-ui.html" class="project-card" data-dom-id="card-xfun-web-ui" data-category="网页设计">
+                <div class="card-img-wrap">
+                    <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/xfun-web-ui.jpg" alt="X·FUN 共创字体计划网页UI" loading="lazy">
+                    <span class="card-category">网页设计</span>
+                    <span class="card-number">03</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">X&middot;FUN 共创字体计划网页UI</h3>
+                    <p class="card-desc">为共创字体计划打造的网页界面设计，注重交互体验与视觉美感的平衡</p>
+                    <span class="card-link">查看作品 →</span>
+                </div>
+            </a>
+
+            <!-- Card 04: 创字体设计及商业视觉应用 -->
+            <a href="detail-font-design.html" class="project-card" data-dom-id="card-font-design" data-category="字体设计">
+                <div class="card-img-wrap">
+                    <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/font-design.png" alt="创字体设计及商业视觉应用" loading="lazy">
+                    <span class="card-category">字体设计</span>
+                    <span class="card-number">04</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">创字体设计及商业视觉应用</h3>
+                    <p class="card-desc">原创字体设计项目，探索字形结构的美学表达及其在商业场景中的应用</p>
+                    <span class="card-link">查看作品 →</span>
+                </div>
+            </a>
+
+            <!-- Card 05: 包装设计 -->
+            <a href="detail-packaging-design.html" class="project-card" data-dom-id="card-packaging-design" data-category="包装设计">
+                <div class="card-img-wrap">
+                    <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/packaging-design.png" alt="包装设计" loading="lazy">
+                    <span class="card-category">包装设计</span>
+                    <span class="card-number">05</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">包装设计</h3>
+                    <p class="card-desc">产品包装视觉设计，探索结构与视觉的统一表达</p>
+                    <span class="card-link">查看作品 →</span>
+                </div>
+            </a>
+
+            <!-- Card 06: 品牌形象设计 -->
+            <a href="detail-brand-identity.html" class="project-card" data-dom-id="card-brand-identity" data-category="品牌设计">
+                <div class="card-img-wrap">
+                    <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/brand-identity.png" alt="品牌形象设计" loading="lazy">
+                    <span class="card-category">品牌设计</span>
+                    <span class="card-number">06</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">品牌形象设计</h3>
+                    <p class="card-desc">完整的品牌视觉识别系统设计，从标志到应用的全链路品牌构建</p>
+                    <span class="card-link">查看作品 →</span>
+                </div>
+            </a>
+
+            <!-- Card 07: 摄影摄像 -->
+            <a href="detail-photography.html" class="project-card" data-dom-id="card-photography" data-category="摄影">
+                <div class="card-img-wrap">
+                    <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/photography.jpg" alt="摄影摄像" loading="lazy">
+                    <span class="card-category">摄影</span>
+                    <span class="card-number">07</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">摄影摄像</h3>
+                    <p class="card-desc">通过镜头捕捉光影瞬间，记录生活中的美学细节与情感表达</p>
+                    <span class="card-link">查看作品 →</span>
+                </div>
+            </a>
+
+            <!-- Card 08: 第16届书籍展览 -->
+            <a href="detail-book-exhibition.html" class="project-card" data-dom-id="card-book-exhibition" data-category="展览设计">
+                <div class="card-img-wrap">
+                    <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/book-exhibition.png" alt="第16届书籍展览" loading="lazy">
+                    <span class="card-category">展览设计</span>
+                    <span class="card-number">08</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">第16届书籍展览</h3>
+                    <p class="card-desc">书籍展览空间视觉设计，打造沉浸式阅读体验场景</p>
+                    <span class="card-link">查看作品 →</span>
+                </div>
+            </a>
+
+            <!-- Card 09: 色盲人群高铁导视优化 -->
+            <a href="detail-wayfinding-design.html" class="project-card" data-dom-id="card-wayfinding-design" data-category="导视设计">
+                <div class="card-img-wrap">
+                    <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/wayfinding-design.png" alt="色盲人群高铁导视优化" loading="lazy">
+                    <span class="card-category">导视设计</span>
+                    <span class="card-number">09</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">色盲人群高铁导视优化</h3>
+                    <p class="card-desc">针对色觉障碍人群的高铁导视系统无障碍设计优化方案</p>
+                    <span class="card-link">查看作品 →</span>
+                </div>
+            </a>
+
+            <!-- Card 10: 苗文化现代化视觉升级 -->
+            <a href="detail-miao-culture.html" class="project-card" data-dom-id="card-miao-culture" data-category="品牌设计">
+                <div class="card-img-wrap">
+                    <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/miao-culture.png" alt="苗文化现代化视觉升级" loading="lazy">
+                    <span class="card-category">品牌设计</span>
+                    <span class="card-number">10</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">苗文化现代化视觉升级</h3>
+                    <p class="card-desc">将传统苗族文化元素进行现代化视觉转译，探索民族文化与当代设计的融合路径</p>
+                    <span class="card-link">查看作品 →</span>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- Section 4: Infinite Scroll Marquee -->
+    <section class="marquee-section anim-section">
+        <div class="marquee-row">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/ip-yapu.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/ip-yun-jian.jpg" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/xfun-web-ui.jpg" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/font-design.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/packaging-design.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/brand-identity.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/photography.jpg" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/book-exhibition.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/wayfinding-design.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/miao-culture.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/ip-yapu.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/ip-yun-jian.jpg" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/xfun-web-ui.jpg" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/font-design.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/packaging-design.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/brand-identity.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/photography.jpg" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/book-exhibition.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/wayfinding-design.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/miao-culture.png" alt="">
+        </div>
+        <div class="marquee-row">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/miao-culture.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/wayfinding-design.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/book-exhibition.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/photography.jpg" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/brand-identity.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/packaging-design.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/font-design.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/xfun-web-ui.jpg" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/ip-yun-jian.jpg" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/ip-yapu.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/miao-culture.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/wayfinding-design.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/book-exhibition.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/photography.jpg" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/brand-identity.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/packaging-design.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/font-design.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/xfun-web-ui.jpg" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/ip-yun-jian.jpg" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/ip-yapu.png" alt="">
+        </div>
+    </section>
+
+    <!-- Section 5: Footer -->
+    <section class="footer-parallax">
+        <div class="overlay"></div>
+        <div class="footer-big-text">
+            <p>S T O P &nbsp; O V E R &nbsp; T H I N K I N G</p>
+            <p>J U S T &nbsp; D O &nbsp; I T</p>
+            <p>F O R &nbsp; F U T U R E</p>
+        </div>
+    </section>
+
+    <div class="footer-info">
+        <div class="footer-info-panel">
+            <div>
+                <h3 class="footer-col-heading">个人信息</h3>
+                <div class="footer-col-item"><span class="label">姓名</span>马明宇</div>
+                <div class="footer-col-item"><span class="label">职业</span>视觉传达设计师</div>
+                <div class="footer-col-item"><span class="label">方向</span>AI艺术设计</div>
+            </div>
+            <div>
+                <h3 class="footer-col-heading">社媒主页</h3>
+                <div class="footer-col-item"><span class="label">站酷</span>马明宇</div>
+                <div class="footer-col-item"><span class="label">Behance</span>MaMingyu</div>
+                <div class="footer-col-item"><span class="label">小红书</span>马明宇设计</div>
+            </div>
+            <div>
+                <h3 class="footer-col-heading">联系我</h3>
+                <div class="footer-col-item"><span class="label">邮箱</span>2536260106@stu.zjhzcc.edu.cn</div>
+                <div class="footer-col-item"><span class="label">所在地</span>浙江杭州</div>
+            </div>
+        </div>
+        <div class="footer-copyright">&copy; 2025 马明宇 All Rights Reserved</div>
+    </div>
+
+    <script>
+    (function() {
+        'use strict';
+        var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        /* ========== 1. MOBILE MENU ========== */
+        var hamburger = document.getElementById('hamburger');
+        var mobileMenu = document.getElementById('mobile-menu');
+        if (hamburger && mobileMenu) {
+            hamburger.addEventListener('click', function() {
+                var isOpen = mobileMenu.classList.toggle('is-open');
+                hamburger.classList.toggle('is-open', isOpen);
+                document.body.style.overflow = isOpen ? 'hidden' : '';
+            });
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && mobileMenu.classList.contains('is-open')) {
+                    mobileMenu.classList.remove('is-open');
+                    hamburger.classList.remove('is-open');
+                    document.body.style.overflow = '';
+                }
+            });
+            mobileMenu.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.remove('is-open');
+                    hamburger.classList.remove('is-open');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
+
+        /* ========== 2. SECTION ENTRANCE ANIMATIONS ========== */
+        if (!prefersReduced) {
+            var sections = document.querySelectorAll('.anim-section');
+            var sectionObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        sectionObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            sections.forEach(function(sec) { sectionObserver.observe(sec); });
+
+            /* ========== 3. CARD STAGGER ENTRANCE ========== */
+            var cards = document.querySelectorAll('.project-card');
+            var cardObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        var idx = Array.prototype.indexOf.call(cards, entry.target);
+                        entry.target.style.transitionDelay = (idx * 0.06) + 's';
+                        entry.target.classList.add('revealed');
+                        cardObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.08 });
+            cards.forEach(function(c) { cardObserver.observe(c); });
+        } else {
+            /* Show everything immediately if reduced motion */
+            document.querySelectorAll('.project-card').forEach(function(c) {
+                c.classList.add('revealed');
+            });
+            document.querySelectorAll('.anim-section').forEach(function(s) {
+                s.classList.add('is-visible');
+            });
+        }
+
+        /* ========== 4. CATEGORY FILTER ========== */
+        var filterBtns = document.querySelectorAll('.filter-btn');
+        var projectCards = document.querySelectorAll('.project-card');
+        filterBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var filter = btn.getAttribute('data-filter');
+                /* Update active state */
+                filterBtns.forEach(function(b) { b.classList.remove('active'); });
+                btn.classList.add('active');
+                /* Filter cards */
+                projectCards.forEach(function(card) {
+                    var category = card.getAttribute('data-category');
+                    if (filter === '全部' || category === filter) {
+                        card.classList.remove('hidden');
+                        card.style.transitionDelay = '0s';
+                        if (!prefersReduced) {
+                            card.classList.remove('revealed');
+                            /* Force reflow */
+                            void card.offsetWidth;
+                            card.classList.add('revealed');
+                        }
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+    })();
+    </script>
+</body>
+</html>
