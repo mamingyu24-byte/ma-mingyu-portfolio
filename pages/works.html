@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html lang="zh-CN" class="dark">
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>作品集 | 马明宇</title>
     <style id="theme-vars">
 :root {
-  /* === mm brand tokens === */
-
-  /* Primary hue — electric cyan */
   --mm-primary-50: #e6faff;
   --mm-primary-100: #b3f0ff;
   --mm-primary-200: #80e6ff;
@@ -19,8 +16,6 @@
   --mm-primary-700: #007499;
   --mm-primary-800: #004a66;
   --mm-primary-900: #002133;
-
-  /* Neutral scale — cool gray */
   --mm-neutral-50: #f4f4f8;
   --mm-neutral-100: #e4e4ec;
   --mm-neutral-200: #c8c8d6;
@@ -32,14 +27,10 @@
   --mm-neutral-800: #1e1e34;
   --mm-neutral-900: #12122a;
   --mm-neutral-950: #08080d;
-
-  /* State colors */
   --state-success: #22c55e;
   --state-warning: #f59e0b;
   --state-error: #ef4444;
   --state-info: #00c8ff;
-
-  /* Semantic aliases (required by fill-html-head.mjs) */
   --mm-background: var(--mm-neutral-950);
   --mm-foreground: var(--mm-neutral-100);
   --mm-card: var(--mm-neutral-900);
@@ -53,19 +44,13 @@
   --mm-border: var(--mm-neutral-700);
   --mm-input: var(--mm-neutral-800);
   --mm-ring: var(--mm-primary-500);
-
-  /* Radius */
   --mm-radius-sm: 4px;
   --mm-radius-md: 8px;
   --mm-radius-lg: 16px;
   --mm-radius-full: 9999px;
-
-  /* Typography */
-  --font-heading: 'Inter', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
-  --font-body: 'Inter', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Urbanist', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+  --font-body: 'Urbanist', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
-
-  /* Type scale */
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-base: 1rem;
@@ -78,728 +63,837 @@
   --text-6xl: 3.75rem;
   --text-7xl: 4.5rem;
   --text-8xl: 6rem;
-
-  /* Line heights */
   --leading-none: 1;
   --leading-tight: 1.25;
   --leading-snug: 1.375;
   --leading-normal: 1.5;
   --leading-relaxed: 1.625;
-
-  /* Font weights */
   --font-light: 300;
   --font-normal: 400;
   --font-medium: 500;
   --font-semibold: 600;
   --font-bold: 700;
-
-  /* Shadows — static alpha <= 0.05, floating layers may exceed */
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
   --shadow-float: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-}
-
-.dark {
-  --mm-background: var(--mm-neutral-950);
-  --mm-foreground: var(--mm-neutral-100);
-  --mm-card: var(--mm-neutral-900);
-  --mm-card-foreground: var(--mm-neutral-100);
-  --mm-popover: var(--mm-neutral-800);
-  --mm-popover-foreground: var(--mm-neutral-100);
-  --mm-primary: var(--mm-primary-500);
-  --mm-primary-foreground: var(--mm-neutral-950);
-  --mm-muted: var(--mm-neutral-800);
-  --mm-muted-foreground: var(--mm-neutral-400);
-  --mm-border: var(--mm-neutral-700);
-  --mm-input: var(--mm-neutral-800);
-  --mm-ring: var(--mm-primary-500);
+  --text-primary: rgba(255, 255, 255, 0.92);
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --text-tertiary: rgba(255, 255, 255, 0.4);
+  --text-quaternary: rgba(255, 255, 255, 0.25);
+  --text-disabled: rgba(255, 255, 255, 0.12);
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-light: rgba(255, 255, 255, 0.1);
+  --border-medium: rgba(255, 255, 255, 0.15);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.33, 1, 0.68, 1);
+  --ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
 }
     </style>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.1/dist/index.global.js"></script>
-    <script src="https://unpkg.com/lucide@1.8.0/dist/umd/lucide.min.js"></script>
-    <style type="text/tailwindcss">
-  @theme inline {
-    --color-background: var(--mm-background);
-    --color-foreground: var(--mm-foreground);
-    --color-card: var(--mm-card);
-    --color-card-foreground: var(--mm-card-foreground);
-    --color-popover: var(--mm-popover);
-    --color-popover-foreground: var(--mm-popover-foreground);
-    --color-primary: var(--mm-primary);
-    --color-primary-foreground: var(--mm-primary-foreground);
-    --color-muted: var(--mm-muted);
-    --color-muted-foreground: var(--mm-muted-foreground);
-    --color-border: var(--mm-border);
-    --color-input: var(--mm-input);
-    --color-ring: var(--mm-ring);
-    --radius-sm: var(--mm-radius-sm);
-    --radius-md: var(--mm-radius-md);
-    --radius-lg: var(--mm-radius-lg);
-  }
-  @layer base {
-    body { background: var(--mm-background); color: var(--mm-foreground); }
-    td, th { @apply break-words; word-break: break-all; word-break: auto-phrase; }
-    th { @apply whitespace-nowrap; }
-  }
-    </style>
-    <style id="semantic-token-fallback">
-      .bg-background { background-color: var(--mm-background); }
-      .text-background { color: var(--mm-background); }
-      .border-background { border-color: var(--mm-background); }
-      .ring-background { --tw-ring-color: var(--mm-background); }
-      .bg-foreground { background-color: var(--mm-foreground); }
-      .text-foreground { color: var(--mm-foreground); }
-      .border-foreground { border-color: var(--mm-foreground); }
-      .ring-foreground { --tw-ring-color: var(--mm-foreground); }
-      .bg-card { background-color: var(--mm-card); }
-      .text-card { color: var(--mm-card); }
-      .border-card { border-color: var(--mm-card); }
-      .ring-card { --tw-ring-color: var(--mm-card); }
-      .bg-card-foreground { background-color: var(--mm-card-foreground); }
-      .text-card-foreground { color: var(--mm-card-foreground); }
-      .border-card-foreground { border-color: var(--mm-card-foreground); }
-      .ring-card-foreground { --tw-ring-color: var(--mm-card-foreground); }
-      .bg-popover { background-color: var(--mm-popover); }
-      .text-popover { color: var(--mm-popover); }
-      .border-popover { border-color: var(--mm-popover); }
-      .ring-popover { --tw-ring-color: var(--mm-popover); }
-      .bg-popover-foreground { background-color: var(--mm-popover-foreground); }
-      .text-popover-foreground { color: var(--mm-popover-foreground); }
-      .border-popover-foreground { border-color: var(--mm-popover-foreground); }
-      .ring-popover-foreground { --tw-ring-color: var(--mm-popover-foreground); }
-      .bg-primary { background-color: var(--mm-primary); }
-      .text-primary { color: var(--mm-primary); }
-      .border-primary { border-color: var(--mm-primary); }
-      .ring-primary { --tw-ring-color: var(--mm-primary); }
-      .bg-primary-foreground { background-color: var(--mm-primary-foreground); }
-      .text-primary-foreground { color: var(--mm-primary-foreground); }
-      .border-primary-foreground { border-color: var(--mm-primary-foreground); }
-      .ring-primary-foreground { --tw-ring-color: var(--mm-primary-foreground); }
-      .bg-muted { background-color: var(--mm-muted); }
-      .text-muted { color: var(--mm-muted); }
-      .border-muted { border-color: var(--mm-muted); }
-      .ring-muted { --tw-ring-color: var(--mm-muted); }
-      .bg-muted-foreground { background-color: var(--mm-muted-foreground); }
-      .text-muted-foreground { color: var(--mm-muted-foreground); }
-      .border-muted-foreground { border-color: var(--mm-muted-foreground); }
-      .ring-muted-foreground { --tw-ring-color: var(--mm-muted-foreground); }
-      .bg-border { background-color: var(--mm-border); }
-      .text-border { color: var(--mm-border); }
-      .border-border { border-color: var(--mm-border); }
-      .ring-border { --tw-ring-color: var(--mm-border); }
-      .bg-input { background-color: var(--mm-input); }
-      .text-input { color: var(--mm-input); }
-      .border-input { border-color: var(--mm-input); }
-      .ring-input { --tw-ring-color: var(--mm-input); }
-      .bg-ring { background-color: var(--mm-ring); }
-      .text-ring { color: var(--mm-ring); }
-      .border-ring { border-color: var(--mm-ring); }
-      .ring-ring { --tw-ring-color: var(--mm-ring); }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-      .no-scrollbar::-webkit-scrollbar { display: none; }
-      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-      [data-icon] {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        -webkit-mask-size: contain;
-        mask-size: contain;
-        -webkit-mask-repeat: no-repeat;
-        mask-repeat: no-repeat;
-        -webkit-mask-position: center;
-        mask-position: center;
-        background-color: currentColor;
-      }
+        /* ==================== RESET & BASE ==================== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        body {
+            background: #000000;
+            color: #f2f0e8;
+            font-family: 'Urbanist', 'Noto Sans SC', system-ui, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        a { text-decoration: none; color: inherit; }
+        img { display: block; max-width: 100%; }
+
+        /* ==================== MARQUEE ANIMATION ==================== */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        @keyframes marquee-reverse {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+
+        /* ==================== NAVIGATION ==================== */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 64px;
+            padding: 0 24px;
+            background: rgba(0, 0, 0, 0.42);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-logo {
+            font-weight: 600;
+            font-size: 18px;
+            color: #f2f0e8;
+            transition: opacity 0.3s ease;
+        }
+        .nav-logo:hover { opacity: 0.8; }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 500;
+            color: #a1a1ab;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover { color: #f2f0e8; }
+        .nav-links a.active { color: #9cff3f; }
+
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 28px;
+            height: 28px;
+            gap: 6px;
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            z-index: 101;
+        }
+        .hamburger .line {
+            display: block;
+            width: 24px;
+            height: 1.5px;
+            background: #f2f0e8;
+            border-radius: 1px;
+            transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.3s;
+            transform-origin: center;
+        }
+        .hamburger.is-open .line:nth-child(1) { transform: translateY(3.75px) rotate(45deg); }
+        .hamburger.is-open .line:nth-child(2) { opacity: 0; }
+        .hamburger.is-open .line:nth-child(3) { transform: translateY(-3.75px) rotate(-45deg); }
+
+        /* Mobile overlay */
+        .mobile-menu {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 4rem 2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s cubic-bezier(0.77, 0, 0.175, 1), visibility 0.5s;
+        }
+        .mobile-menu.is-open { opacity: 1; visibility: visible; }
+        .mobile-menu > a {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 500;
+            color: #a1a1ab;
+            display: block;
+            padding: 0.3em 0;
+            line-height: 1.2;
+            transition: color 0.3s ease, transform 0.4s ease, opacity 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .mobile-menu.is-open > a { opacity: 1; transform: translateY(0); }
+        .mobile-menu.is-open > a:nth-child(1) { transition-delay: 0.05s; }
+        .mobile-menu.is-open > a:nth-child(2) { transition-delay: 0.13s; }
+        .mobile-menu.is-open > a:nth-child(3) { transition-delay: 0.21s; }
+        .mobile-menu.is-open > a:nth-child(4) { transition-delay: 0.29s; }
+        .mobile-menu > a:hover { color: #f2f0e8; transform: translateX(20px); }
+        .mobile-menu-email {
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.25);
+            margin-top: 3rem;
+            transition: color 0.3s;
+        }
+        .mobile-menu-email:hover { color: #a1a1ab; }
+        @media (max-width: 639px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+        }
+
+        /* ==================== PAGE TITLE ==================== */
+        .page-title-section {
+            padding: 120px 24px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .page-title-heading {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 500;
+            letter-spacing: -0.06em;
+            line-height: 1.3;
+        }
+        .page-title-heading .letter {
+            display: inline-block;
+        }
+        .page-title-heading .green { color: #9cff3f; }
+        .page-title-sub {
+            color: #a1a1ab;
+            font-size: 18px;
+            font-weight: 300;
+            margin-top: 12px;
+        }
+
+        /* ==================== FILTER BAR ==================== */
+        .filter-bar {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px 40px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .filter-bar::-webkit-scrollbar { display: none; }
+        .filter-btn {
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #a1a1ab;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.08);
+            white-space: nowrap;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Urbanist', 'Noto Sans SC', system-ui, sans-serif;
+            flex-shrink: 0;
+        }
+        .filter-btn:hover {
+            border-color: rgba(255,255,255,0.2);
+            color: #f2f0e8;
+        }
+        .filter-btn.active {
+            color: #000;
+            background: #9cff3f;
+            border-color: #9cff3f;
+        }
+
+        /* ==================== PROJECT GRID ==================== */
+        .project-grid-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px 100px;
+        }
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        @media (max-width: 639px) {
+            .project-grid { grid-template-columns: 1fr; }
+        }
+
+        .project-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 32px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 48px rgba(0,0,0,0.4);
+        }
+        .project-card .card-img-wrap {
+            overflow: hidden;
+            position: relative;
+            height: 280px;
+        }
+        .project-card .card-img-wrap img {
+            height: 280px;
+            object-fit: cover;
+            width: 100%;
+            transition: transform 0.6s ease;
+        }
+        .project-card:hover .card-img-wrap img {
+            transform: scale(1.05);
+        }
+        .project-card .card-category {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            padding: 4px 12px;
+            border-radius: 100px;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            font-size: 11px;
+            font-weight: 500;
+            color: #a1a1ab;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+        .project-card .card-number {
+            position: absolute;
+            bottom: 16px;
+            right: 16px;
+            font-size: 64px;
+            font-weight: 700;
+            color: rgba(255,255,255,0.04);
+            line-height: 1;
+            z-index: 1;
+        }
+        .project-card .card-body {
+            padding: 24px;
+        }
+        .project-card .card-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #f2f0e8;
+            margin-bottom: 4px;
+        }
+        .project-card .card-desc {
+            font-size: 14px;
+            color: #a1a1ab;
+            line-height: 1.5;
+        }
+        .project-card .card-link {
+            font-size: 13px;
+            color: #9cff3f;
+            font-weight: 500;
+            margin-top: 12px;
+            display: inline-block;
+            transition: opacity 0.3s ease;
+        }
+        .project-card .card-link:hover { opacity: 0.75; }
+
+        /* Hidden cards for filter */
+        .project-card.hidden {
+            display: none;
+        }
+
+        /* ==================== INFINITE SCROLL MARQUEE ==================== */
+        .marquee-section {
+            overflow: hidden;
+            padding: 40px 0 100px;
+        }
+        .marquee-row {
+            display: flex;
+            gap: 20px;
+            width: max-content;
+        }
+        .marquee-row img {
+            height: 200px;
+            width: auto;
+            aspect-ratio: 1;
+            border-radius: 24px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        .marquee-row:nth-child(1) {
+            animation: marquee 35s linear infinite;
+        }
+        .marquee-row:nth-child(2) {
+            animation: marquee-reverse 40s linear infinite;
+            margin-top: 20px;
+        }
+
+        /* ==================== FOOTER PARALLAX ==================== */
+        .footer-parallax {
+            position: relative;
+            height: 60vh;
+            overflow: hidden;
+            background-image: url('https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/brand-identity.png');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+        .footer-parallax .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.85) 100%);
+        }
+        @supports (-webkit-touch-callout: none) {
+            .footer-parallax { background-attachment: scroll; }
+        }
+        .footer-big-text {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            z-index: 2;
+        }
+        .footer-big-text p {
+            color: rgba(255,255,255,0.1);
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            line-height: 1.8;
+        }
+        .footer-info {
+            max-width: 1200px;
+            margin: -80px auto 0;
+            padding: 0 24px 60px;
+            position: relative;
+            z-index: 3;
+        }
+        .footer-info-panel {
+            background: rgba(255,255,255,0.03);
+            border-radius: 32px;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+        .footer-col-heading {
+            font-size: 14px;
+            font-weight: 600;
+            color: #f2f0e8;
+            letter-spacing: 0.05em;
+            margin-bottom: 16px;
+        }
+        .footer-col-item {
+            font-size: 14px;
+            color: #a1a1ab;
+            line-height: 2;
+        }
+        .footer-col-item .label {
+            color: rgba(255,255,255,0.3);
+            margin-right: 8px;
+        }
+        .footer-copyright {
+            text-align: center;
+            padding-top: 24px;
+            font-size: 12px;
+            color: rgba(255,255,255,0.25);
+        }
+        @media (max-width: 768px) {
+            .footer-info-panel { grid-template-columns: 1fr; gap: 32px; }
+        }
+
+        /* ==================== SECTION ANIMATIONS ==================== */
+        .anim-section {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.7s cubic-bezier(0.33, 1, 0.68, 1), transform 0.7s cubic-bezier(0.33, 1, 0.68, 1);
+        }
+        .anim-section.is-visible { opacity: 1; transform: translateY(0); }
+
+        /* ==================== CARD ENTRANCE ANIMATION ==================== */
+        .project-card {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .project-card.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .project-card.revealed:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 48px rgba(0,0,0,0.4);
+        }
+
+        /* ==================== REDUCED MOTION ==================== */
+        @media (prefers-reduced-motion: reduce) {
+            .marquee-row { animation: none !important; }
+            .anim-section { opacity: 1 !important; transform: none !important; transition: none !important; }
+            .project-card { opacity: 1 !important; transform: none !important; transition: none !important; }
+        }
     </style>
 </head>
-<body class="min-h-screen font-sans antialiased">
-    <main>
+<body>
 
-<!-- ============ project-shell: background wrapper, nav, footer ============ -->
-<style>
-  /* ---- animated gradient mesh background ---- */
-  @keyframes mesh-drift {
-    0%, 100% { background-position: 0% 0%, 100% 100%, 50% 50%; }
-    25% { background-position: 60% 20%, 30% 80%, 80% 40%; }
-    50% { background-position: 100% 50%, 0% 30%, 20% 80%; }
-    75% { background-position: 40% 80%, 70% 10%, 60% 20%; }
-  }
-  .portfolio-bg {
-    background-color: var(--mm-background, #08080d);
-    background-image:
-      radial-gradient(ellipse 600px 600px at 20% 20%, rgba(0,200,255,0.08) 0%, transparent 70%),
-      radial-gradient(ellipse 500px 500px at 80% 60%, rgba(0,120,255,0.06) 0%, transparent 70%),
-      radial-gradient(ellipse 400px 400px at 50% 90%, rgba(0,200,255,0.04) 0%, transparent 70%);
-    background-size: 200% 200%, 200% 200%, 200% 200%;
-    animation: mesh-drift 20s ease-in-out infinite;
-    min-height: 100vh;
-    font-family: var(--font-body);
-    color: var(--mm-foreground);
-  }
-
-  /* ---- nav glass effect ---- */
-  .nav-glass {
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    background: rgba(8,8,13,0.7);
-    border-bottom: 1px solid var(--mm-border, #2e2e48);
-    transition: all 0.3s ease;
-  }
-  .nav-link {
-    color: var(--mm-muted-foreground, #7a7a96);
-    transition: all 0.3s ease;
-    font-size: var(--text-sm, 0.875rem);
-    font-weight: var(--font-medium, 500);
-    letter-spacing: 0.02em;
-    padding: 0.5rem 0;
-    position: relative;
-  }
-  .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -2px; left: 0;
-    width: 0; height: 2px;
-    background: var(--mm-primary, #00c8ff);
-    border-radius: var(--mm-radius-full, 9999px);
-    transition: width 0.3s ease;
-  }
-  .nav-link:hover { color: var(--mm-foreground, #e4e4ec); }
-  .nav-link:hover::after { width: 100%; }
-  .nav-link[data-active="true"] { color: var(--mm-primary, #00c8ff); }
-  .nav-link[data-active="true"]::after { width: 100%; background: var(--mm-primary, #00c8ff); }
-
-  .logo-dot {
-    display: inline-block; width: 8px; height: 8px;
-    background: var(--mm-primary, #00c8ff);
-    border-radius: 50%; margin-left: 2px; vertical-align: super; font-size: 0;
-    box-shadow: 0 0 8px rgba(0,200,255,0.5);
-  }
-
-  /* ---- footer ---- */
-  .portfolio-footer {
-    border-top: 1px solid var(--mm-border, #2e2e48);
-    color: var(--mm-muted-foreground, #7a7a96);
-    font-size: var(--text-sm, 0.875rem);
-    transition: all 0.3s ease;
-  }
-  .portfolio-footer a { color: var(--mm-muted-foreground, #7a7a96); transition: color 0.3s ease; text-decoration: none; }
-  .portfolio-footer a:hover { color: var(--mm-primary, #00c8ff); }
-
-  /* ---- mobile hamburger ---- */
-  .mobile-menu-toggle { display: none; }
-  .hamburger-label { display: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 4px; }
-  .hamburger-label span { display: block; width: 22px; height: 2px; background: var(--mm-foreground, #e4e4ec); border-radius: var(--mm-radius-full, 9999px); transition: all 0.3s ease; }
-  @media (max-width: 639px) {
-    .hamburger-label { display: flex; }
-    .mobile-nav-links {
-      max-height: 0; overflow: hidden; transition: max-height 0.3s ease, opacity 0.3s ease; opacity: 0;
-      position: absolute; top: 100%; left: 0; right: 0;
-      background: rgba(8,8,13,0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--mm-border, #2e2e48);
-      flex-direction: column; align-items: center; gap: 0; padding: 0;
-    }
-    .mobile-nav-links .nav-link { display: block; width: 100%; text-align: center; padding: 0.875rem 1rem; border-bottom: 1px solid rgba(46,46,72,0.3); }
-    .mobile-nav-links .nav-link:last-child { border-bottom: none; }
-    .mobile-menu-toggle:checked ~ .mobile-nav-links { max-height: 300px; opacity: 1; }
-    .mobile-menu-toggle:checked ~ .hamburger-label span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .mobile-menu-toggle:checked ~ .hamburger-label span:nth-child(2) { opacity: 0; }
-    .mobile-menu-toggle:checked ~ .hamburger-label span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-  }
-
-  /* ---- works page: card stagger entrance ---- */
-  @keyframes card-fade-in {
-    0% { opacity: 0; transform: translateY(30px) scale(0.97); }
-    100% { opacity: 1; transform: translateY(0) scale(1); }
-  }
-  .project-card {
-    animation: card-fade-in 0.6s ease-out both;
-  }
-  .project-card:nth-child(1)  { animation-delay: 0.05s; }
-  .project-card:nth-child(2)  { animation-delay: 0.10s; }
-  .project-card:nth-child(3)  { animation-delay: 0.15s; }
-  .project-card:nth-child(4)  { animation-delay: 0.20s; }
-  .project-card:nth-child(5)  { animation-delay: 0.25s; }
-  .project-card:nth-child(6)  { animation-delay: 0.30s; }
-  .project-card:nth-child(7)  { animation-delay: 0.35s; }
-  .project-card:nth-child(8)  { animation-delay: 0.40s; }
-  .project-card:nth-child(9)  { animation-delay: 0.45s; }
-  .project-card:nth-child(10) { animation-delay: 0.50s; }
-
-  /* ---- glass card ---- */
-  .glass-card {
-    background: rgba(18,18,42,0.6);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid var(--mm-border, #2e2e48);
-    border-radius: var(--mm-radius-lg, 16px);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  }
-  .glass-card:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 30px rgba(0,200,255,0.15);
-    border-color: var(--mm-primary, #00c8ff);
-  }
-  .glass-card:hover .card-cover-img {
-    transform: scale(1.08);
-  }
-  .glass-card:hover .card-overlay-title {
-    transform: translateY(-4px);
-  }
-  .card-cover-img {
-    transition: transform 0.4s ease;
-  }
-
-  /* ---- category tag ---- */
-  .category-tag {
-    display: inline-flex;
-    align-items: center;
-    white-space: nowrap;
-    font-size: var(--text-xs, 0.75rem);
-    font-weight: var(--font-medium, 500);
-    padding: 3px 10px;
-    border-radius: var(--mm-radius-full, 9999px);
-    border: 1px solid rgba(0,200,255,0.25);
-    color: var(--mm-primary, #00c8ff);
-    background: rgba(0,200,255,0.06);
-    letter-spacing: 0.02em;
-    transition: all 0.3s ease;
-  }
-  .glass-card:hover .category-tag {
-    background: rgba(0,200,255,0.12);
-    border-color: rgba(0,200,255,0.45);
-  }
-
-  /* ---- editorial gallery grid ---- */
-  .works-masonry-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 320px;
-    gap: 20px;
-  }
-  .works-masonry-grid .span-2-rows {
-    grid-row: span 2;
-  }
-
-  @media (max-width: 1023px) {
-    .works-masonry-grid {
-      grid-template-columns: repeat(2, 1fr);
-      grid-auto-rows: 280px;
-      gap: 16px;
-    }
-    .works-masonry-grid .span-2-rows {
-      grid-row: span 2;
-    }
-  }
-  @media (max-width: 639px) {
-    .works-masonry-grid {
-      grid-template-columns: 1fr;
-      grid-auto-rows: 320px;
-      gap: 14px;
-    }
-    .works-masonry-grid .span-2-rows {
-      grid-row: span 1;
-    }
-    .works-masonry-grid .project-card {
-      height: 320px;
-    }
-  }
-
-  /* ============ interactive enhancements ============ */
-
-  /* ---- magnetic cursor ---- */
-  .mm-cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 8px;
-    height: 8px;
-    background: var(--mm-primary, #00c8ff);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    will-change: left, top;
-    transition: width 0.3s cubic-bezier(0.23, 1, 0.32, 1),
-                height 0.3s cubic-bezier(0.23, 1, 0.32, 1),
-                background 0.3s ease,
-                border-color 0.3s ease;
-  }
-  .mm-cursor.is-hovering {
-    width: 40px;
-    height: 40px;
-    background: rgba(0, 200, 255, 0.12);
-    border: 1.5px solid var(--mm-primary, #00c8ff);
-  }
-  @media (hover: hover) and (pointer: fine) {
-    .portfolio-bg,
-    .portfolio-bg a,
-    .portfolio-bg button,
-    .portfolio-bg [data-dom-id],
-    .portfolio-bg input,
-    .portfolio-bg label { cursor: none; }
-  }
-
-  /* ---- card 3D tilt glare overlay ---- */
-  .glass-card {
-    --glare-x: 50%;
-    --glare-y: 50%;
-  }
-  .glass-card::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 10;
-    background: radial-gradient(
-      280px circle at var(--glare-x) var(--glare-y),
-      rgba(255, 255, 255, 0.1),
-      transparent 60%
-    );
-  }
-  .glass-card:hover::after {
-    opacity: 1;
-  }
-
-  /* ---- staggered entrance override (IntersectionObserver) ---- */
-  .project-card {
-    opacity: 0;
-    transform: translateY(40px);
-    animation: none;
-  }
-  .project-card.revealed {
-    animation: card-stagger-in 0.5s ease-out forwards;
-  }
-  @keyframes card-stagger-in {
-    0% { opacity: 0; transform: translateY(40px); }
-    100% { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ---- smooth page fade-in ---- */
-  body {
-    opacity: 0;
-    animation: mm-page-fade-in 0.5s ease-out 0.05s forwards;
-  }
-  @keyframes mm-page-fade-in {
-    to { opacity: 1; }
-  }
-
-  /* ---- prefers-reduced-motion ---- */
-  @media (prefers-reduced-motion: reduce) {
-    .mm-cursor { display: none; }
-    .project-card {
-      opacity: 1;
-      transform: none;
-      animation: none;
-    }
-    body {
-      opacity: 1;
-      animation: none;
-    }
-    .glass-card::after { display: none; }
-    .portfolio-bg, .portfolio-bg a, .portfolio-bg button,
-    .portfolio-bg [data-dom-id], .portfolio-bg input, .portfolio-bg label {
-      cursor: auto;
-    }
-  }
-</style>
-
-<div class="portfolio-bg">
-
-  <!-- ============ STICKY NAV ============ -->
-  <nav class="nav-glass sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="relative flex items-center justify-between h-14 sm:h-16">
-
-        <a href="home.html" class="flex items-center gap-1 no-underline" style="font-family: var(--font-heading); font-weight: var(--font-bold, 700); font-size: var(--text-lg, 1.125rem); color: var(--mm-foreground, #e4e4ec); transition: all 0.3s ease; text-decoration: none;">
-          马明宇<span class="logo-dot"></span>
-        </a>
-
-        <div class="hidden sm:flex items-center gap-8">
-          <a href="home.html" class="nav-link" data-nav-key="home" data-dom-id="nav-home">首页</a>
-          <a href="works.html" class="nav-link" data-nav-key="works" data-dom-id="nav-works" data-active="true">作品集</a>
-          <a href="about.html" class="nav-link" data-nav-key="about" data-dom-id="nav-about">关于我</a>
-        </div>
-
-        <input type="checkbox" id="mobile-menu-toggle" class="mobile-menu-toggle" aria-hidden="true">
-        <label for="mobile-menu-toggle" class="hamburger-label" aria-label="菜单">
-          <span></span><span></span><span></span>
-        </label>
-
-        <div class="mobile-nav-links sm:hidden flex flex-col">
-          <a href="home.html" class="nav-link" data-nav-key="home" data-dom-id="nav-home">首页</a>
-          <a href="works.html" class="nav-link" data-nav-key="works" data-dom-id="nav-works" data-active="true">作品集</a>
-          <a href="about.html" class="nav-link" data-nav-key="about" data-dom-id="nav-about">关于我</a>
-        </div>
-
-      </div>
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="home-v2.html" data-dom-id="nav-home">首页</a>
+        <a href="works-v2.html" data-dom-id="nav-works">作品集</a>
+        <a href="about.html" data-dom-id="nav-about">关于我</a>
+        <a href="mailto:2536260106@stu.zjhzcc.edu.cn" data-dom-id="nav-contact">联系我</a>
+        <a href="mailto:2536260106@stu.zjhzcc.edu.cn" class="mobile-menu-email">2536260106@stu.zjhzcc.edu.cn</a>
     </div>
-  </nav>
 
-  <!-- ============ PAGE CONTENT ============ -->
-  <div class="page-slot">
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="home-v2.html" class="nav-logo" data-dom-id="nav-home">马明宇</a>
+        <div class="nav-links">
+            <a href="home-v2.html" data-nav-key="home" data-dom-id="nav-home">首页</a>
+            <a href="works-v2.html" data-nav-key="works" data-dom-id="nav-works" class="active">作品集</a>
+            <a href="about.html" data-nav-key="about" data-dom-id="nav-about">关于我</a>
+            <a href="mailto:2536260106@stu.zjhzcc.edu.cn" data-dom-id="nav-contact">联系我</a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="菜单">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </button>
+    </nav>
 
-    <!-- 1. Page Header — editorial, left-aligned -->
-    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 pb-8 sm:pb-10">
-      <h1 class="font-bold text-foreground text-left" style="font-size: clamp(2.5rem, 6vw, 3.75rem); font-family: var(--font-heading); line-height: var(--leading-tight, 1.15); letter-spacing: -0.02em;">
-        作品集
-      </h1>
-      <div class="mt-4" style="width: 48px; height: 2px; background: var(--mm-primary, #00c8ff); border-radius: var(--mm-radius-full, 9999px);"></div>
-      <p class="mt-3 text-muted-foreground text-left" style="font-size: var(--text-sm, 0.875rem); letter-spacing: 0.04em;">
-        10个项目 &middot; 视觉传达 / IP设计 / 品牌设计 / UI / 摄影
-      </p>
+    <!-- Section 1: Page Title -->
+    <section class="page-title-section anim-section">
+        <h1 class="page-title-heading">
+            <span class="letter green">A</span> <span class="letter green">L</span> <span class="letter green">L</span><br>
+            <span class="letter green">W</span> <span class="letter green">O</span> <span class="letter green">r</span> <span class="letter green">K</span> <span class="letter green">s</span>
+        </h1>
+        <p class="page-title-sub">全部作品集</p>
     </section>
 
-    <!-- 2. Project Grid — Editorial Gallery Layout -->
-    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20">
-      <div class="works-masonry-grid">
-
-        <!-- Card 1: tall (span 2 rows) -->
-        <a href="detail-ip-yapu.html" class="project-card glass-card span-2-rows block no-underline relative group" data-dom-id="card-ip-yapu" data-target="page-detail-ip-yapu">
-          <div class="absolute inset-0 overflow-hidden rounded-[var(--mm-radius-lg,16px)]">
-            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/ip-yapu.jpg" alt="IP设计「YaPu」" loading="lazy" class="card-cover-img w-full h-full object-cover" />
-          </div>
-          <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(8,8,13,0.88) 0%, rgba(8,8,13,0.3) 35%, transparent 65%); z-index: 1;"></div>
-          <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5" style="z-index: 2;">
-            <span class="category-tag mb-2 inline-block">IP设计</span>
-            <h3 class="card-overlay-title text-foreground font-semibold transition-transform duration-300" style="font-size: var(--text-lg, 1.125rem); font-family: var(--font-heading);">IP设计「YaPu」</h3>
-          </div>
-        </a>
-
-        <!-- Card 2: normal -->
-        <a href="detail-ip-yun-jian.html" class="project-card glass-card block no-underline relative group" data-dom-id="card-ip-yun-jian" data-target="page-detail-ip-yun-jian">
-          <div class="absolute inset-0 overflow-hidden rounded-[var(--mm-radius-lg,16px)]">
-            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/ip-yun-jian.png" alt="IP设计「云肩撑花」" loading="lazy" class="card-cover-img w-full h-full object-cover" />
-          </div>
-          <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(8,8,13,0.88) 0%, rgba(8,8,13,0.3) 35%, transparent 65%); z-index: 1;"></div>
-          <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5" style="z-index: 2;">
-            <span class="category-tag mb-2 inline-block">IP设计</span>
-            <h3 class="card-overlay-title text-foreground font-semibold truncate transition-transform duration-300" style="font-size: var(--text-base, 1rem); font-family: var(--font-heading);">IP设计「云肩撑花」</h3>
-          </div>
-        </a>
-
-        <!-- Card 3: normal -->
-        <a href="detail-xfun-web-ui.html" class="project-card glass-card block no-underline relative group" data-dom-id="card-xfun-web-ui" data-target="page-detail-xfun-web-ui">
-          <div class="absolute inset-0 overflow-hidden rounded-[var(--mm-radius-lg,16px)]">
-            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/xfun-web-ui.jpg" alt="X·FUN 共创字体计划网页UI" loading="lazy" class="card-cover-img w-full h-full object-cover" />
-          </div>
-          <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(8,8,13,0.88) 0%, rgba(8,8,13,0.3) 35%, transparent 65%); z-index: 1;"></div>
-          <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5" style="z-index: 2;">
-            <span class="category-tag mb-2 inline-block">网页设计</span>
-            <h3 class="card-overlay-title text-foreground font-semibold truncate transition-transform duration-300" style="font-size: var(--text-base, 1rem); font-family: var(--font-heading);">X&middot;FUN 共创字体计划网页UI</h3>
-          </div>
-        </a>
-
-        <!-- Card 4: tall (span 2 rows) -->
-        <a href="detail-font-design.html" class="project-card glass-card span-2-rows block no-underline relative group" data-dom-id="card-font-design" data-target="page-detail-font-design">
-          <div class="absolute inset-0 overflow-hidden rounded-[var(--mm-radius-lg,16px)]">
-            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/font-design.jpg" alt="创字体设计及商业视觉应用" loading="lazy" class="card-cover-img w-full h-full object-cover" />
-          </div>
-          <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(8,8,13,0.88) 0%, rgba(8,8,13,0.3) 35%, transparent 65%); z-index: 1;"></div>
-          <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5" style="z-index: 2;">
-            <span class="category-tag mb-2 inline-block">字体设计</span>
-            <h3 class="card-overlay-title text-foreground font-semibold transition-transform duration-300" style="font-size: var(--text-lg, 1.125rem); font-family: var(--font-heading);">创字体设计及商业视觉应用</h3>
-          </div>
-        </a>
-
-        <!-- Card 5: normal -->
-        <a href="detail-packaging-design.html" class="project-card glass-card block no-underline relative group" data-dom-id="card-packaging-design" data-target="page-detail-packaging-design">
-          <div class="absolute inset-0 overflow-hidden rounded-[var(--mm-radius-lg,16px)]">
-            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/packaging-design.png" alt="包装设计" loading="lazy" class="card-cover-img w-full h-full object-cover" />
-          </div>
-          <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(8,8,13,0.88) 0%, rgba(8,8,13,0.3) 35%, transparent 65%); z-index: 1;"></div>
-          <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5" style="z-index: 2;">
-            <span class="category-tag mb-2 inline-block">包装设计</span>
-            <h3 class="card-overlay-title text-foreground font-semibold truncate transition-transform duration-300" style="font-size: var(--text-base, 1rem); font-family: var(--font-heading);">包装设计</h3>
-          </div>
-        </a>
-
-        <!-- Card 6: normal -->
-        <a href="detail-brand-identity.html" class="project-card glass-card block no-underline relative group" data-dom-id="card-brand-identity" data-target="page-detail-brand-identity">
-          <div class="absolute inset-0 overflow-hidden rounded-[var(--mm-radius-lg,16px)]">
-            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/brand-identity.png" alt="品牌形象设计" loading="lazy" class="card-cover-img w-full h-full object-cover" />
-          </div>
-          <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(8,8,13,0.88) 0%, rgba(8,8,13,0.3) 35%, transparent 65%); z-index: 1;"></div>
-          <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5" style="z-index: 2;">
-            <span class="category-tag mb-2 inline-block">品牌设计</span>
-            <h3 class="card-overlay-title text-foreground font-semibold truncate transition-transform duration-300" style="font-size: var(--text-base, 1rem); font-family: var(--font-heading);">品牌形象设计</h3>
-          </div>
-        </a>
-
-        <!-- Card 7: tall (span 2 rows) -->
-        <a href="detail-photography.html" class="project-card glass-card span-2-rows block no-underline relative group" data-dom-id="card-photography" data-target="page-detail-photography">
-          <div class="absolute inset-0 overflow-hidden rounded-[var(--mm-radius-lg,16px)]">
-            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/photography.png" alt="摄影摄像" loading="lazy" class="card-cover-img w-full h-full object-cover" />
-          </div>
-          <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(8,8,13,0.88) 0%, rgba(8,8,13,0.3) 35%, transparent 65%); z-index: 1;"></div>
-          <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5" style="z-index: 2;">
-            <span class="category-tag mb-2 inline-block">摄影</span>
-            <h3 class="card-overlay-title text-foreground font-semibold transition-transform duration-300" style="font-size: var(--text-lg, 1.125rem); font-family: var(--font-heading);">摄影摄像</h3>
-          </div>
-        </a>
-
-        <!-- Card 8: normal -->
-        <a href="detail-book-exhibition.html" class="project-card glass-card block no-underline relative group" data-dom-id="card-book-exhibition" data-target="page-detail-book-exhibition">
-          <div class="absolute inset-0 overflow-hidden rounded-[var(--mm-radius-lg,16px)]">
-            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/book-exhibition.jpg" alt="第16届书籍展览" loading="lazy" class="card-cover-img w-full h-full object-cover" />
-          </div>
-          <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(8,8,13,0.88) 0%, rgba(8,8,13,0.3) 35%, transparent 65%); z-index: 1;"></div>
-          <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5" style="z-index: 2;">
-            <span class="category-tag mb-2 inline-block">展览设计</span>
-            <h3 class="card-overlay-title text-foreground font-semibold truncate transition-transform duration-300" style="font-size: var(--text-base, 1rem); font-family: var(--font-heading);">第16届书籍展览</h3>
-          </div>
-        </a>
-
-        <!-- Card 9: normal -->
-        <a href="detail-wayfinding-design.html" class="project-card glass-card block no-underline relative group" data-dom-id="card-wayfinding-design" data-target="page-detail-wayfinding-design">
-          <div class="absolute inset-0 overflow-hidden rounded-[var(--mm-radius-lg,16px)]">
-            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/wayfinding-design.png" alt="色盲人群高铁导视优化" loading="lazy" class="card-cover-img w-full h-full object-cover" />
-          </div>
-          <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(8,8,13,0.88) 0%, rgba(8,8,13,0.3) 35%, transparent 65%); z-index: 1;"></div>
-          <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5" style="z-index: 2;">
-            <span class="category-tag mb-2 inline-block">导视设计</span>
-            <h3 class="card-overlay-title text-foreground font-semibold truncate transition-transform duration-300" style="font-size: var(--text-base, 1rem); font-family: var(--font-heading);">色盲人群高铁导视优化</h3>
-          </div>
-        </a>
-
-        <!-- Card 10: normal -->
-        <a href="detail-miao-culture.html" class="project-card glass-card block no-underline relative group" data-dom-id="card-miao-culture" data-target="page-detail-miao-culture">
-          <div class="absolute inset-0 overflow-hidden rounded-[var(--mm-radius-lg,16px)]">
-            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/miao-culture.png" alt="苗文化现代化视觉升级" loading="lazy" class="card-cover-img w-full h-full object-cover" />
-          </div>
-          <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(8,8,13,0.88) 0%, rgba(8,8,13,0.3) 35%, transparent 65%); z-index: 1;"></div>
-          <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5" style="z-index: 2;">
-            <span class="category-tag mb-2 inline-block">品牌设计</span>
-            <h3 class="card-overlay-title text-foreground font-semibold truncate transition-transform duration-300" style="font-size: var(--text-base, 1rem); font-family: var(--font-heading);">苗文化现代化视觉升级</h3>
-          </div>
-        </a>
-
-      </div>
-    </section>
-
-    <!-- 3. Bottom CTA — editorial style -->
-    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20">
-      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 py-8" style="border-top: 1px solid var(--mm-border, #2e2e48);">
-        <p class="text-muted-foreground" style="font-size: var(--text-lg, 1.125rem); font-family: var(--font-heading);">想了解我的背景和经历？</p>
-        <a href="about.html" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg font-medium transition-all duration-300 no-underline shrink-0" style="background: var(--mm-primary, #00c8ff); color: var(--mm-primary-foreground, #08080d); font-size: var(--text-sm, 0.875rem); font-family: var(--font-heading);" data-dom-id="cta-about"
-           onmouseover="this.style.background='rgba(0,200,255,0.85)'; this.style.boxShadow='0 0 20px rgba(0,200,255,0.3)'"
-           onmouseout="this.style.background='var(--mm-primary, #00c8ff)'; this.style.boxShadow='none'">
-          关于我 <span style="font-size: var(--text-sm, 0.875rem);">&rarr;</span>
-        </a>
-      </div>
-    </section>
-
-  </div>
-
-  <!-- ============ FOOTER ============ -->
-  <footer class="portfolio-footer mt-auto">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-center gap-2 text-center">
-      <span>&copy; 2025 马明宇 All Rights Reserved</span>
-      <span class="hidden sm:inline" style="color: var(--mm-border, #2e2e48);">|</span>
-      <a href="mailto:2536260106@stu.zjhzcc.edu.cn">2536260106@stu.zjhzcc.edu.cn</a>
+    <!-- Section 2: Category Filter Bar -->
+    <div class="filter-bar anim-section" id="filter-bar">
+        <button class="filter-btn active" data-filter="全部">全部</button>
+        <button class="filter-btn" data-filter="IP设计">IP设计</button>
+        <button class="filter-btn" data-filter="网页设计">网页设计</button>
+        <button class="filter-btn" data-filter="字体设计">字体设计</button>
+        <button class="filter-btn" data-filter="包装设计">包装设计</button>
+        <button class="filter-btn" data-filter="品牌设计">品牌设计</button>
+        <button class="filter-btn" data-filter="摄影">摄影</button>
+        <button class="filter-btn" data-filter="展览设计">展览设计</button>
+        <button class="filter-btn" data-filter="导视设计">导视设计</button>
+        <button class="filter-btn" data-filter="品牌设计">品牌设计</button>
     </div>
-  </footer>
 
-</div>
+    <!-- Section 3: Project Grid -->
+    <section class="project-grid-section">
+        <div class="project-grid" id="project-grid">
 
-    </main>
-<script>
-(function () {
-  /* ========== reduced-motion guard ========== */
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const hasFineCursor = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+            <!-- Card 01: IP设计 YaPu -->
+            <a href="detail-ip-yapu.html" class="project-card" data-dom-id="card-ip-yapu" data-category="IP设计">
+                <div class="card-img-wrap">
+                    <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/ip-yapu.jpg" alt="IP设计「YaPu」" loading="lazy">
+                    <span class="card-category">IP设计</span>
+                    <span class="card-number">01</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">IP设计「YaPu」</h3>
+                    <p class="card-desc">原创IP形象设计，融合潮流美学与趣味表达</p>
+                    <span class="card-link">查看作品 →</span>
+                </div>
+            </a>
 
-  /* ========== 1. MAGNETIC CURSOR ========== */
-  if (hasFineCursor && !prefersReduced.matches) {
-    const dot = document.createElement('div');
-    dot.className = 'mm-cursor';
-    document.body.appendChild(dot);
+            <!-- Card 02: IP设计「云肩撑花」-->
+            <a href="detail-ip-yun-jian.html" class="project-card" data-dom-id="card-ip-yun-jian" data-category="IP设计">
+                <div class="card-img-wrap">
+                    <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/ip-yun-jian.png" alt="IP设计「云肩撑花」" loading="lazy">
+                    <span class="card-category">IP设计</span>
+                    <span class="card-number">02</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">IP设计「云肩撑花」</h3>
+                    <p class="card-desc">以中国传统云肩为灵感，创作融合古典韵味与潮流审美的IP形象</p>
+                    <span class="card-link">查看作品 →</span>
+                </div>
+            </a>
 
-    let curX = -100, curY = -100;
-    let targetX = -100, targetY = -100;
+            <!-- Card 03: X·FUN 共创字体计划网页UI -->
+            <a href="detail-xfun-web-ui.html" class="project-card" data-dom-id="card-xfun-web-ui" data-category="网页设计">
+                <div class="card-img-wrap">
+                    <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/xfun-web-ui.jpg" alt="X·FUN 共创字体计划网页UI" loading="lazy">
+                    <span class="card-category">网页设计</span>
+                    <span class="card-number">03</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">X&middot;FUN 共创字体计划网页UI</h3>
+                    <p class="card-desc">为共创字体计划打造的网页界面设计，注重交互体验与视觉美感的平衡</p>
+                    <span class="card-link">查看作品 →</span>
+                </div>
+            </a>
 
-    document.addEventListener('mousemove', function (e) {
-      targetX = e.clientX;
-      targetY = e.clientY;
-    });
+            <!-- Card 04: 创字体设计及商业视觉应用 -->
+            <a href="detail-font-design.html" class="project-card" data-dom-id="card-font-design" data-category="字体设计">
+                <div class="card-img-wrap">
+                    <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/font-design.jpg" alt="创字体设计及商业视觉应用" loading="lazy">
+                    <span class="card-category">字体设计</span>
+                    <span class="card-number">04</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">创字体设计及商业视觉应用</h3>
+                    <p class="card-desc">原创字体设计项目，探索字形结构的美学表达及其在商业场景中的应用</p>
+                    <span class="card-link">查看作品 →</span>
+                </div>
+            </a>
 
-    document.addEventListener('mouseleave', function () {
-      dot.style.opacity = '0';
-    });
-    document.addEventListener('mouseenter', function () {
-      dot.style.opacity = '1';
-    });
+            <!-- Card 05: 包装设计 -->
+            <a href="detail-packaging-design.html" class="project-card" data-dom-id="card-packaging-design" data-category="包装设计">
+                <div class="card-img-wrap">
+                    <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/packaging-design.png" alt="包装设计" loading="lazy">
+                    <span class="card-category">包装设计</span>
+                    <span class="card-number">05</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">包装设计</h3>
+                    <p class="card-desc">产品包装视觉设计，探索结构与视觉的统一表达</p>
+                    <span class="card-link">查看作品 →</span>
+                </div>
+            </a>
 
-    /* detect interactive hover targets */
-    const hoverables = document.querySelectorAll(
-      'a, button, [data-dom-id], input, label, .nav-link, .hamburger-label'
-    );
-    hoverables.forEach(function (el) {
-      el.addEventListener('mouseenter', function () { dot.classList.add('is-hovering'); });
-      el.addEventListener('mouseleave', function () { dot.classList.remove('is-hovering'); });
-    });
+            <!-- Card 06: 品牌形象设计 -->
+            <a href="detail-brand-identity.html" class="project-card" data-dom-id="card-brand-identity" data-category="品牌设计">
+                <div class="card-img-wrap">
+                    <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/brand-identity.png" alt="品牌形象设计" loading="lazy">
+                    <span class="card-category">品牌设计</span>
+                    <span class="card-number">06</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">品牌形象设计</h3>
+                    <p class="card-desc">完整的品牌视觉识别系统设计，从标志到应用的全链路品牌构建</p>
+                    <span class="card-link">查看作品 →</span>
+                </div>
+            </a>
 
-    (function cursorLoop() {
-      curX += (targetX - curX) * 0.15;
-      curY += (targetY - curY) * 0.15;
-      dot.style.left = curX + 'px';
-      dot.style.top = curY + 'px';
-      requestAnimationFrame(cursorLoop);
-    })();
-  }
+            <!-- Card 07: 摄影摄像 -->
+            <a href="detail-photography.html" class="project-card" data-dom-id="card-photography" data-category="摄影">
+                <div class="card-img-wrap">
+                    <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/photography.png" alt="摄影摄像" loading="lazy">
+                    <span class="card-category">摄影</span>
+                    <span class="card-number">07</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">摄影摄像</h3>
+                    <p class="card-desc">通过镜头捕捉光影瞬间，记录生活中的美学细节与情感表达</p>
+                    <span class="card-link">查看作品 →</span>
+                </div>
+            </a>
 
-  /* ========== 2. CARD 3D TILT + GLARE ========== */
-  if (hasFineCursor && !prefersReduced.matches) {
-    var cards = document.querySelectorAll('.glass-card');
-    cards.forEach(function (card) {
-      card.addEventListener('mousemove', function (e) {
-        var rect = card.getBoundingClientRect();
-        var x = e.clientX - rect.left;
-        var y = e.clientY - rect.top;
-        var midX = rect.width / 2;
-        var midY = rect.height / 2;
-        /* tilt: max 6deg */
-        var rotateY = ((x - midX) / midX) * 6;
-        var rotateX = ((midY - y) / midY) * 6;
-        card.style.transform = 'perspective(800px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) scale(1.02)';
-        /* glare position */
-        var pctX = ((x / rect.width) * 100).toFixed(1);
-        var pctY = ((y / rect.height) * 100).toFixed(1);
-        card.style.setProperty('--glare-x', pctX + '%');
-        card.style.setProperty('--glare-y', pctY + '%');
-      });
+            <!-- Card 08: 第16届书籍展览 -->
+            <a href="detail-book-exhibition.html" class="project-card" data-dom-id="card-book-exhibition" data-category="展览设计">
+                <div class="card-img-wrap">
+                    <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/book-exhibition.png" alt="第16届书籍展览" loading="lazy">
+                    <span class="card-category">展览设计</span>
+                    <span class="card-number">08</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">第16届书籍展览</h3>
+                    <p class="card-desc">书籍展览空间视觉设计，打造沉浸式阅读体验场景</p>
+                    <span class="card-link">查看作品 →</span>
+                </div>
+            </a>
 
-      card.addEventListener('mouseleave', function () {
-        card.style.transform = '';
-        card.style.setProperty('--glare-x', '50%');
-        card.style.setProperty('--glare-y', '50%');
-      });
-    });
-  }
+            <!-- Card 09: 色盲人群高铁导视优化 -->
+            <a href="detail-wayfinding-design.html" class="project-card" data-dom-id="card-wayfinding-design" data-category="导视设计">
+                <div class="card-img-wrap">
+                    <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/wayfinding-design.png" alt="色盲人群高铁导视优化" loading="lazy">
+                    <span class="card-category">导视设计</span>
+                    <span class="card-number">09</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">色盲人群高铁导视优化</h3>
+                    <p class="card-desc">针对色觉障碍人群的高铁导视系统无障碍设计优化方案</p>
+                    <span class="card-link">查看作品 →</span>
+                </div>
+            </a>
 
-  /* ========== 3. STAGGERED GRID ENTRANCE (IntersectionObserver, once) ========== */
-  if (!prefersReduced.matches) {
-    var entranceCards = document.querySelectorAll('.project-card');
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          var idx = Array.prototype.indexOf.call(entranceCards, entry.target);
-          entry.target.style.animationDelay = (idx * 0.06) + 's';
-          entry.target.classList.add('revealed');
-          observer.unobserve(entry.target);
+            <!-- Card 10: 苗文化现代化视觉升级 -->
+            <a href="detail-miao-culture.html" class="project-card" data-dom-id="card-miao-culture" data-category="品牌设计">
+                <div class="card-img-wrap">
+                    <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/miao-culture.png" alt="苗文化现代化视觉升级" loading="lazy">
+                    <span class="card-category">品牌设计</span>
+                    <span class="card-number">10</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">苗文化现代化视觉升级</h3>
+                    <p class="card-desc">将传统苗族文化元素进行现代化视觉转译，探索民族文化与当代设计的融合路径</p>
+                    <span class="card-link">查看作品 →</span>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- Section 4: Infinite Scroll Marquee -->
+    <section class="marquee-section anim-section">
+        <div class="marquee-row">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/ip-yapu.jpg" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/ip-yun-jian.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/xfun-web-ui.jpg" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/font-design.jpg" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/packaging-design.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/brand-identity.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/photography.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/book-exhibition.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/wayfinding-design.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/miao-culture.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/ip-yapu.jpg" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/ip-yun-jian.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/xfun-web-ui.jpg" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/font-design.jpg" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/packaging-design.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/brand-identity.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/photography.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/book-exhibition.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/wayfinding-design.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/miao-culture.png" alt="">
+        </div>
+        <div class="marquee-row">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/miao-culture.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/wayfinding-design.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/book-exhibition.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/photography.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/brand-identity.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/packaging-design.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/font-design.jpg" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/xfun-web-ui.jpg" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/ip-yun-jian.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/ip-yapu.jpg" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/miao-culture.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/wayfinding-design.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/book-exhibition.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/photography.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/brand-identity.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/packaging-design.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/font-design.jpg" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/xfun-web-ui.jpg" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/ip-yun-jian.png" alt="">
+            <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/ip-yapu.jpg" alt="">
+        </div>
+    </section>
+
+    <!-- Section 5: Footer -->
+    <section class="footer-parallax">
+        <div class="overlay"></div>
+        <div class="footer-big-text">
+            <p>S T O P &nbsp; O V E R &nbsp; T H I N K I N G</p>
+            <p>J U S T &nbsp; D O &nbsp; I T</p>
+            <p>F O R &nbsp; F U T U R E</p>
+        </div>
+    </section>
+
+    <div class="footer-info">
+        <div class="footer-info-panel">
+            <div>
+                <h3 class="footer-col-heading">个人信息</h3>
+                <div class="footer-col-item"><span class="label">姓名</span>马明宇</div>
+                <div class="footer-col-item"><span class="label">职业</span>视觉传达设计师</div>
+                <div class="footer-col-item"><span class="label">方向</span>AI艺术设计</div>
+            </div>
+            <div>
+                <h3 class="footer-col-heading">社媒主页</h3>
+                <div class="footer-col-item"><span class="label">站酷</span>马明宇</div>
+                <div class="footer-col-item"><span class="label">Behance</span>MaMingyu</div>
+                <div class="footer-col-item"><span class="label">小红书</span>马明宇设计</div>
+            </div>
+            <div>
+                <h3 class="footer-col-heading">联系我</h3>
+                <div class="footer-col-item"><span class="label">邮箱</span>2536260106@stu.zjhzcc.edu.cn</div>
+                <div class="footer-col-item"><span class="label">所在地</span>浙江杭州</div>
+            </div>
+        </div>
+        <div class="footer-copyright">&copy; 2025 马明宇 All Rights Reserved</div>
+    </div>
+
+    <script>
+    (function() {
+        'use strict';
+        var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        /* ========== 1. MOBILE MENU ========== */
+        var hamburger = document.getElementById('hamburger');
+        var mobileMenu = document.getElementById('mobile-menu');
+        if (hamburger && mobileMenu) {
+            hamburger.addEventListener('click', function() {
+                var isOpen = mobileMenu.classList.toggle('is-open');
+                hamburger.classList.toggle('is-open', isOpen);
+                document.body.style.overflow = isOpen ? 'hidden' : '';
+            });
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && mobileMenu.classList.contains('is-open')) {
+                    mobileMenu.classList.remove('is-open');
+                    hamburger.classList.remove('is-open');
+                    document.body.style.overflow = '';
+                }
+            });
+            mobileMenu.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.remove('is-open');
+                    hamburger.classList.remove('is-open');
+                    document.body.style.overflow = '';
+                });
+            });
         }
-      });
-    }, { threshold: 0.08 });
-    entranceCards.forEach(function (c) { observer.observe(c); });
-  }
-})();
-</script>
-    <script>lucide.createIcons();</script>
+
+        /* ========== 2. SECTION ENTRANCE ANIMATIONS ========== */
+        if (!prefersReduced) {
+            var sections = document.querySelectorAll('.anim-section');
+            var sectionObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        sectionObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            sections.forEach(function(sec) { sectionObserver.observe(sec); });
+
+            /* ========== 3. CARD STAGGER ENTRANCE ========== */
+            var cards = document.querySelectorAll('.project-card');
+            var cardObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        var idx = Array.prototype.indexOf.call(cards, entry.target);
+                        entry.target.style.transitionDelay = (idx * 0.06) + 's';
+                        entry.target.classList.add('revealed');
+                        cardObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.08 });
+            cards.forEach(function(c) { cardObserver.observe(c); });
+        } else {
+            /* Show everything immediately if reduced motion */
+            document.querySelectorAll('.project-card').forEach(function(c) {
+                c.classList.add('revealed');
+            });
+            document.querySelectorAll('.anim-section').forEach(function(s) {
+                s.classList.add('is-visible');
+            });
+        }
+
+        /* ========== 4. CATEGORY FILTER ========== */
+        var filterBtns = document.querySelectorAll('.filter-btn');
+        var projectCards = document.querySelectorAll('.project-card');
+        filterBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var filter = btn.getAttribute('data-filter');
+                /* Update active state */
+                filterBtns.forEach(function(b) { b.classList.remove('active'); });
+                btn.classList.add('active');
+                /* Filter cards */
+                projectCards.forEach(function(card) {
+                    var category = card.getAttribute('data-category');
+                    if (filter === '全部' || category === filter) {
+                        card.classList.remove('hidden');
+                        card.style.transitionDelay = '0s';
+                        if (!prefersReduced) {
+                            card.classList.remove('revealed');
+                            /* Force reflow */
+                            void card.offsetWidth;
+                            card.classList.add('revealed');
+                        }
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+    })();
+    </script>
 </body>
 </html>
