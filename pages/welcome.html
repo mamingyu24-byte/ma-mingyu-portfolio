@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>马明宇 | 视觉传达设计师</title>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+html,body{
+  width:100%;height:100%;overflow:hidden;
+  background:#0a0a0a;
+  font-family:system-ui,-apple-system,sans-serif;
+  color:#f2f0e8;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* ---------- scene ---------- */
+.scene{
+  position:fixed;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  perspective:1200px;
+  perspective-origin:50% 50%;
+  z-index:1;
+}
+
+/* ---------- carousel container ---------- */
+.carousel{
+  position:relative;
+  width:0;height:0;
+  will-change:transform;
+  transform-style:preserve-3d;
+}
+
+/* ---------- individual card ---------- */
+.card{
+  position:absolute;
+  width:200px;height:140px;
+  border-radius:20px;
+  overflow:hidden;
+  backface-visibility:hidden;
+  transform-style:preserve-3d;
+  opacity:0;
+  cursor:pointer;
+  will-change:transform,opacity;
+  transition:box-shadow .5s ease, filter .5s ease;
+}
+
+.card img{
+  display:block;
+  width:100%;height:100%;
+  object-fit:cover;
+  border-radius:20px;
+  pointer-events:none;
+  -webkit-user-drag:none;
+}
+
+/* reflection overlay */
+.card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:50%;
+  background:linear-gradient(to top,rgba(0,0,0,0.35),transparent);
+  border-radius:0 0 20px 20px;
+  pointer-events:none;
+}
+
+/* front card glow */
+.card.front{
+  box-shadow:0 0 30px rgba(156,255,63,0.15), 0 0 60px rgba(156,255,63,0.05);
+  filter:brightness(1.15);
+  z-index:10;
+}
+
+.card:not(.front){
+  filter:brightness(0.45) saturate(0.6);
+}
+
+/* ---------- center text ---------- */
+.center-text{
+  position:fixed;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  text-align:center;
+  z-index:20;
+  pointer-events:none;
+  opacity:0;
+  transition:opacity .8s ease;
+}
+
+.center-text.visible{opacity:1}
+
+.center-text .name{
+  font-size:48px;font-weight:500;
+  letter-spacing:-2px;color:#f2f0e8;
+  line-height:1.1;
+  margin-bottom:10px;
+}
+
+.center-text .subtitle{
+  font-size:16px;color:#9cff3f;
+  letter-spacing:4px;
+}
+
+.center-text .caption{
+  font-size:11px;color:rgba(161,161,171,0.6);
+  letter-spacing:6px;margin-top:16px;
+  text-transform:uppercase;
+}
+
+/* ---------- enter hint ---------- */
+.enter-hint{
+  position:fixed;
+  top:calc(50% + 80px);left:50%;
+  transform:translateX(-50%);
+  z-index:25;
+  font-size:13px;color:rgba(156,255,63,0.7);
+  letter-spacing:2px;
+  cursor:pointer;
+  text-decoration:none;
+  animation:pulse-hint 2.5s ease-in-out infinite;
+  transition:opacity .4s;
+  opacity:0;
+}
+
+.enter-hint.visible{opacity:1}
+
+@keyframes pulse-hint{
+  0%,100%{opacity:0.4}
+  50%{opacity:1}
+}
+
+/* ---------- particles ---------- */
+.particle{
+  position:fixed;
+  width:4px;height:4px;
+  border-radius:50%;
+  background:#9cff3f;
+  pointer-events:none;
+  z-index:0;
+  opacity:0;
+  animation:float-up linear infinite;
+}
+
+@keyframes float-up{
+  0%  {transform:translateY(0)   translateX(0);   opacity:0}
+  10% {opacity:var(--p-opacity,0.2)}
+  90% {opacity:var(--p-opacity,0.2)}
+  100%{transform:translateY(-110vh) translateX(var(--sway,20px));opacity:0}
+}
+
+/* ---------- responsive ---------- */
+@media(max-width:767px){
+  .card{width:140px;height:100px}
+  .center-text .name{font-size:32px;letter-spacing:-1px}
+  .center-text .subtitle{font-size:13px;letter-spacing:3px}
+  .center-text .caption{font-size:10px;letter-spacing:4px}
+  .enter-hint{font-size:12px;top:calc(50% + 60px)}
+}
+</style>
+</head>
+<body>
+
+<!-- 3D Scene -->
+<div class="scene">
+  <div class="carousel" id="carousel"></div>
+</div>
+
+<!-- Center Text -->
+<div class="center-text" id="centerText">
+  <div class="name">马明宇</div>
+  <div class="subtitle">视觉传达设计师</div>
+  <div class="caption">DESIGNER PORTFOLIO 2025</div>
+</div>
+
+<!-- Enter Hint -->
+<a href="home.html" rel="noopener" class="enter-hint" id="enterHint">点击进入 →</a>
+
+<script>
+(function(){
+  /* ===== config ===== */
+  var IMAGES = [
+    'https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/miao-culture.jpg',
+    'https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/ip-yun-jian.jpg',
+    'https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/xfun-web-ui.jpg',
+    'https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/font-design.jpg',
+    'https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/packaging-design.jpg',
+    'https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/brand-identity.jpg',
+    'https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/photography.jpg',
+    'https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/book-exhibition.jpg',
+    'https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/wayfinding-design.jpg',
+    'https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/ip-yapu.jpg'
+  ];
+  var COUNT = IMAGES.length;
+  var ANGLE_STEP = 360 / COUNT;
+  var ENTRY_EASING = 'cubic-bezier(.23,1,.32,1)';
+
+  function getRadius(){
+    return window.innerWidth < 768 ? 250 : 400;
+  }
+
+  /* ===== build cards ===== */
+  var carousel = document.getElementById('carousel');
+  var cards = [];
+  var cardScales = [];
+
+  for(var i = 0; i < COUNT; i++){
+    var card = document.createElement('div');
+    card.className = 'card';
+    var img = document.createElement('img');
+    img.src = IMAGES[i];
+    img.alt = 'Project ' + (i + 1);
+    img.draggable = false;
+    card.appendChild(img);
+    card.dataset.index = i;
+    carousel.appendChild(card);
+    cards.push(card);
+    cardScales.push(0.01);
+  }
+
+  /* ===== state ===== */
+  var currentAngle = 0;
+  var autoSpeed = 0.15;
+  var userSpeed = 0;
+  var isInteracting = false;
+  var entryDone = false;
+  var hasInteracted = false;
+  var redirectTimer = null;
+  var prevFront = -1;
+
+  /* ===== set card 3D position + scale (JS-only, preserves rotateY/translateZ) ===== */
+  function setCardTransform(idx, scale){
+    var r = getRadius();
+    var angle = ANGLE_STEP * idx;
+    cards[idx].style.transform = 'rotateY(' + angle + 'deg) translateZ(' + r + 'px) scale(' + scale + ')';
+    cardScales[idx] = scale;
+  }
+
+  /* ===== initial layout (scale 0, hidden) ===== */
+  for(var i = 0; i < COUNT; i++){
+    setCardTransform(i, 0.01);
+  }
+
+  /* ===== update front card (scale + glow class) ===== */
+  function updateFront(){
+    var a = ((currentAngle % 360) + 360) % 360;
+    var frontIdx = Math.round(a / ANGLE_STEP) % COUNT;
+    if(frontIdx < 0) frontIdx += COUNT;
+
+    if(frontIdx !== prevFront){
+      if(prevFront >= 0){
+        cards[prevFront].classList.remove('front');
+        // restore to scale 1 with transition
+        cards[prevFront].style.transition = 'transform .5s ease, opacity 1s ' + ENTRY_EASING + ', box-shadow .5s ease, filter .5s ease';
+        setCardTransform(prevFront, 1);
+      }
+      cards[frontIdx].classList.add('front');
+      // scale front card up
+      cards[frontIdx].style.transition = 'transform .5s ease, opacity 1s ' + ENTRY_EASING + ', box-shadow .5s ease, filter .5s ease';
+      setCardTransform(frontIdx, 1.08);
+      prevFront = frontIdx;
+    }
+  }
+
+  /* ===== animation loop ===== */
+  function tick(){
+    if(entryDone){
+      if(!isInteracting){
+        currentAngle += autoSpeed + userSpeed * 0.3;
+      } else {
+        currentAngle += userSpeed;
+      }
+      carousel.style.transform = 'rotateY(' + (-currentAngle) + 'deg)';
+      updateFront();
+    }
+    if(!isInteracting){
+      userSpeed *= 0.95;
+      if(Math.abs(userSpeed) < 0.01) userSpeed = 0;
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+
+  /* ===== entry animation (staggered) ===== */
+  function playEntry(){
+    for(var i = 0; i < COUNT; i++){
+      (function(idx){
+        setTimeout(function(){
+          cards[idx].style.transition = 'transform 1s ' + ENTRY_EASING + ', opacity 1s ' + ENTRY_EASING + ', box-shadow .5s ease, filter .5s ease';
+          setCardTransform(idx, 1);
+          cards[idx].style.opacity = '1';
+        }, idx * 80);
+      })(i);
+    }
+    // show center text after cards
+    setTimeout(function(){
+      document.getElementById('centerText').classList.add('visible');
+      document.getElementById('enterHint').classList.add('visible');
+      entryDone = true;
+      startRedirectTimer();
+    }, COUNT * 80 + 600);
+  }
+  playEntry();
+
+  /* ===== mouse control ===== */
+  document.addEventListener('mousemove', function(e){
+    if(!entryDone) return;
+    markInteracted();
+    var cx = window.innerWidth / 2;
+    var dx = e.clientX - cx;
+    var ratio = dx / cx;
+    userSpeed = ratio * 1.2;
+    isInteracting = true;
+  });
+  document.addEventListener('mouseleave', function(){
+    isInteracting = false;
+  });
+
+  /* ===== touch control ===== */
+  var touchLastX = 0;
+  document.addEventListener('touchstart', function(e){
+    if(!entryDone) return;
+    markInteracted();
+    touchLastX = e.touches[0].clientX;
+    isInteracting = true;
+  }, {passive:true});
+
+  document.addEventListener('touchmove', function(e){
+    if(!isInteracting) return;
+    var x = e.touches[0].clientX;
+    var dx = x - touchLastX;
+    userSpeed = dx * 0.3;
+    touchLastX = x;
+  }, {passive:true});
+
+  document.addEventListener('touchend', function(){
+    isInteracting = false;
+  }, {passive:true});
+
+  /* ===== click front card ===== */
+  carousel.addEventListener('click', function(e){
+    if(!entryDone) return;
+    markInteracted();
+    var target = e.target.closest('.card');
+    if(!target) return;
+    if(target.classList.contains('front')){
+      window.location.href = 'home.html';
+    }
+  });
+
+  /* ===== redirect timer ===== */
+  function startRedirectTimer(){
+    redirectTimer = setTimeout(function(){
+      window.location.href = 'home.html';
+    }, 15000);
+  }
+
+  function markInteracted(){
+    if(!hasInteracted){
+      hasInteracted = true;
+      if(redirectTimer){
+        clearTimeout(redirectTimer);
+        redirectTimer = null;
+      }
+    }
+  }
+
+  /* ===== resize handler ===== */
+  var resizeTimeout;
+  window.addEventListener('resize', function(){
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(function(){
+      if(!entryDone){
+        // during entry, re-layout at current scale
+        for(var i = 0; i < COUNT; i++){
+          setCardTransform(i, cardScales[i]);
+        }
+      } else {
+        // after entry, re-layout all at correct scale
+        for(var i = 0; i < COUNT; i++){
+          cards[i].style.transition = 'none';
+          var isFront = cards[i].classList.contains('front');
+          setCardTransform(i, isFront ? 1.08 : 1);
+          // re-enable transition after repaint
+          (function(c){
+            requestAnimationFrame(function(){
+              c.style.transition = 'transform .5s ease, opacity 1s ' + ENTRY_EASING + ', box-shadow .5s ease, filter .5s ease';
+            });
+          })(cards[i]);
+        }
+      }
+    }, 100);
+  });
+
+  /* ===== background particles ===== */
+  (function createParticles(){
+    var count = 7;
+    for(var i = 0; i < count; i++){
+      var p = document.createElement('div');
+      p.className = 'particle';
+      var size = 3 + Math.random() * 3;
+      p.style.width = size + 'px';
+      p.style.height = size + 'px';
+      p.style.left = (Math.random() * 100) + 'vw';
+      p.style.top = (60 + Math.random() * 40) + 'vh';
+      p.style.setProperty('--p-opacity', (0.15 + Math.random() * 0.15).toFixed(2));
+      p.style.setProperty('--sway', (-30 + Math.random() * 60).toFixed(0) + 'px');
+      var dur = 12 + Math.random() * 18;
+      p.style.animationDuration = dur + 's';
+      p.style.animationDelay = (Math.random() * dur) + 's';
+      document.body.appendChild(p);
+    }
+  })();
+
+})();
+</script>
+</body>
+</html>
