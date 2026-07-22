@@ -363,30 +363,31 @@
 
         /* Hero thumbnails marquee */
         .hero-thumbs {
-            margin-top: 40px;
             overflow: hidden;
             max-width: 100%;
         }
         .hero-thumbs-track {
             display: flex;
-            gap: 16px;
+            gap: 10px;
             animation: marquee 40s linear infinite;
             width: max-content;
             will-change: transform;
         }
         .hero-thumbs-track img {
             width: 148px;
-            height: 148px;
-            border-radius: 28px;
+            height: 80px;
+            border-radius: 12px;
             object-fit: cover;
             flex-shrink: 0;
+            opacity: 0.45;
+            transition: opacity 0.3s;
         }
 
         @media (max-width: 768px) {
             .hero-inner { flex-direction: column; gap: 40px; }
             .hero-right { max-width: 100%; width: 100%; }
             .hero-title { font-size: 26px; letter-spacing: -1.2px; }
-            .hero-thumbs-track img { width: 100px; height: 100px; border-radius: 20px; }
+            .hero-thumbs-track img { width: 100px; height: 54px; border-radius: 8px; }
             .hero-thumbs-track { animation-duration: 25s; }
             .image-wall-row img { height: 150px; }
             .image-wall-row { animation-duration: 30s !important; }
@@ -695,35 +696,30 @@
                     <button class="carousel-dot" data-dot="2" aria-label="Slide 3"></button>
                     <button class="carousel-dot" data-dot="3" aria-label="Slide 4"></button>
                 </div>
-            </div>
-        </div>
-
-        <!-- Hero thumbnails marquee -->
-        <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
-            <div style="height: 1px; background: linear-gradient(90deg, transparent, rgba(156,255,63,0.2), transparent); margin-bottom: 32px;"></div>
-        </div>
-        <div class="hero-thumbs" style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
-            <div class="hero-thumbs-track">
-                <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/miao-culture.jpg" alt="">
-                <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/ip-yun-jian.jpg" alt="">
-                <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/xfun-web-ui.jpg" alt="">
-                <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/font-design.jpg" alt="">
-                <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/packaging-design.jpg" alt="">
-                <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/brand-identity.jpg" alt="">
-                <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/photography.jpg" alt="">
-                <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/book-exhibition.jpg" alt="">
-                <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/wayfinding-design.jpg" alt="">
-                <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/ip-yapu.jpg" alt="">
-                <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/miao-culture.jpg" alt="">
-                <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/ip-yun-jian.jpg" alt="">
-                <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/xfun-web-ui.jpg" alt="">
-                <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/font-design.jpg" alt="">
-                <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/packaging-design.jpg" alt="">
-                <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/brand-identity.jpg" alt="">
-                <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/photography.jpg" alt="">
-                <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/book-exhibition.jpg" alt="">
-                <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/wayfinding-design.jpg" alt="">
-                <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/ip-yapu.jpg" alt="">
+                <div class="hero-thumbs" style="margin-top: 16px;">
+                    <div class="hero-thumbs-track">
+                        <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/miao-culture.jpg" alt="">
+                        <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/ip-yun-jian.jpg" alt="">
+                        <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/xfun-web-ui.jpg" alt="">
+                        <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/font-design.jpg" alt="">
+                        <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/packaging-design.jpg" alt="">
+                        <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/brand-identity.jpg" alt="">
+                        <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/photography.jpg" alt="">
+                        <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/book-exhibition.jpg" alt="">
+                        <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/wayfinding-design.jpg" alt="">
+                        <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/ip-yapu.jpg" alt="">
+                        <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/miao-culture.jpg" alt="">
+                        <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/ip-yun-jian.jpg" alt="">
+                        <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/xfun-web-ui.jpg" alt="">
+                        <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/font-design.jpg" alt="">
+                        <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/packaging-design.jpg" alt="">
+                        <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/brand-identity.jpg" alt="">
+                        <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/photography.jpg" alt="">
+                        <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/book-exhibition.jpg" alt="">
+                        <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/wayfinding-design.jpg" alt="">
+                        <img src="https://cdn.jsdelivr.net/gh/mamingyu24-byte/ma-mingyu-portfolio@main/assets/ip-yapu.jpg" alt="">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
