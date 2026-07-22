@@ -164,12 +164,12 @@
 
         /* ==================== MARQUEE ANIMATION ==================== */
         @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
         }
         @keyframes marquee-reverse {
-            0% { transform: translateX(-50%); }
-            100% { transform: translateX(0); }
+            0% { transform: translate3d(-50%, 0, 0); }
+            100% { transform: translate3d(0, 0, 0); }
         }
 
         /* ==================== NAVIGATION ==================== */
@@ -372,6 +372,7 @@
             gap: 16px;
             animation: marquee 40s linear infinite;
             width: max-content;
+            will-change: transform;
         }
         .hero-thumbs-track img {
             width: 148px;
@@ -386,7 +387,11 @@
             .hero-right { max-width: 100%; width: 100%; }
             .hero-title { font-size: 26px; letter-spacing: -1.2px; }
             .hero-thumbs-track img { width: 100px; height: 100px; border-radius: 20px; }
+            .hero-thumbs-track { animation-duration: 25s; }
             .image-wall-row img { height: 150px; }
+            .image-wall-row { animation-duration: 30s !important; }
+            .image-wall-row:nth-child(2) { animation-duration: 35s !important; }
+            .full-works-row { animation-duration: 30s; }
             .footer-parallax { height: 40vh; }
             .footer-info-panel { padding: 24px; border-radius: 20px; }
             .anim-section { transform: translateY(20px); }
@@ -434,6 +439,7 @@
             display: flex;
             gap: 20px;
             width: max-content;
+            will-change: transform;
         }
         .image-wall-row img {
             height: 220px;
@@ -523,6 +529,7 @@
             gap: 20px;
             width: max-content;
             animation: marquee 40s linear infinite;
+            will-change: transform;
         }
         .full-works-row a { flex-shrink: 0; }
         .full-works-row img {
